@@ -1,0 +1,5 @@
+site_name: Kelon Docs
+theme: material
+
+pages:
+  - "Introduction": "index.md"
