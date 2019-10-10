@@ -1,5 +1,30 @@
 site_name: Kelon Docs
 theme: material
 
+
+repo_name: foundato/kelon
+repo_url: https://github.com/foundato/kelon
+
+markdown_extensions:
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
 pages:
   - "Introduction": "index.md"
+  - "Overview":
+    - "Components": "overview/components.md"
+    - "Motivation": "overview/motivation.md"
