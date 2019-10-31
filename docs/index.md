@@ -33,3 +33,4 @@ Getting started with Kelon is as easy as following one of the How-To guides.
 
 * [Local deployment](how-to/Local-Deployment.md)
 * [Example Setup](how-to/Run-The-Example.md)
+* [Appstore example (Spring-Boot & Vue.js)](how-to/Appstore-Example.md)

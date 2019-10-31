@@ -34,3 +34,4 @@ pages:
   - "How-To's":
     - "Local deployment": "how-to/Local-Deployment.md"
     - "Run the example": "how-to/Run-The-Example.md"
+    - "Appstore example": "how-to/Appstore-Example.md"
