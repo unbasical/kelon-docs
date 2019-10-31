@@ -25,6 +25,5 @@ markdown_extensions:
 
 pages:
   - "Introduction": "index.md"
-  - "Overview":
-    - "Components": "overview/components.md"
-    - "Motivation": "overview/motivation.md"
+  - "How-To's":
+    - "Local Deployment": "how-to/Local-Deployment.md"

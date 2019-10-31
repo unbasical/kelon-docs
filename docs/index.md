@@ -26,3 +26,9 @@ security because **all** your **policies** are **stored and enforced in one plac
 This is basically the problem that the Open Policy Agent solves. The only problem is that it is very hard to integrate
 the OPA into a project because it needs the data which is needed to enforce policies to be stored inside it. This leads to work flows where
 you copy an abstraction of your entire database into OPA which is not only redundant, but also leads to synchronization issues.
+
+## Getting Started
+
+Getting started with Kelon is as easy as following one of the How-To guides.
+
+* [Local deployment](how-to/Local-Deployment.md)
