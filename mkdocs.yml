@@ -27,6 +27,10 @@ pages:
   - "Introduction": "index.md"
   - "Kelon":
     - "Introduction": "kelon/Introduction.md"
+    - "Architecture":
+      - "Components": "kelon/architecture/Components.md"
+      - "Request mapping": "kelon/architecture/Request-Mapping.md"
+      - "Query AST": "kelon/architecture/Query-AST.md"
   - "How-To's":
-    - "Local Deployment": "how-to/Local-Deployment.md"
+    - "Local deployment": "how-to/Local-Deployment.md"
     - "Run the example": "how-to/Run-The-Example.md"
