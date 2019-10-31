@@ -25,6 +25,8 @@ markdown_extensions:
 
 pages:
   - "Introduction": "index.md"
+  - "Kelon":
+    - "Introduction": "kelon/Introduction.md"
   - "How-To's":
     - "Local Deployment": "how-to/Local-Deployment.md"
     - "Run the example": "how-to/Run-The-Example.md"

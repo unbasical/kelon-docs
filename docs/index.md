@@ -32,3 +32,4 @@ you copy an abstraction of your entire database into OPA which is not only redun
 Getting started with Kelon is as easy as following one of the How-To guides.
 
 * [Local deployment](how-to/Local-Deployment.md)
+* [Example Setup](how-to/Run-The-Example.md)
