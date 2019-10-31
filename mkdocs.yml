@@ -25,6 +25,13 @@ markdown_extensions:
 
 pages:
   - "Introduction": "index.md"
-  - "Overview":
-    - "Components": "overview/components.md"
-    - "Motivation": "overview/motivation.md"
+  - "Kelon":
+    - "Introduction": "kelon/Introduction.md"
+    - "Architecture":
+      - "Components": "kelon/architecture/Components.md"
+      - "Request mapping": "kelon/architecture/Request-Mapping.md"
+      - "Query AST": "kelon/architecture/Query-AST.md"
+  - "How-To's":
+    - "Local deployment": "how-to/Local-Deployment.md"
+    - "Run the example": "how-to/Run-The-Example.md"
+    - "Appstore example": "how-to/Appstore-Example.md"
