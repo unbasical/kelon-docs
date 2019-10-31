@@ -27,3 +27,4 @@ pages:
   - "Introduction": "index.md"
   - "How-To's":
     - "Local Deployment": "how-to/Local-Deployment.md"
+    - "Run the example": "how-to/Run-The-Example.md"
