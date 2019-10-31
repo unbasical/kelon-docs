@@ -1,0 +1,609 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+    
+    
+      
+        <title>Local deployment - Kelon Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.30686662.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#local-deployment" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Kelon Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Kelon Docs
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Local deployment
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/foundato/kelon/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    foundato/kelon
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Kelon Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Kelon Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/foundato/kelon/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    foundato/kelon
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Kelon
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Kelon
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../kelon/Introduction/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      Architecture
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        Architecture
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../kelon/architecture/Components/" title="Components" class="md-nav__link">
+      Components
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../kelon/architecture/Request-Mapping/" title="Request mapping" class="md-nav__link">
+      Request mapping
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../kelon/architecture/Query-AST/" title="Query AST" class="md-nav__link">
+      Query AST
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      How-To's
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        How-To's
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="Local deployment" class="md-nav__link md-nav__link--active">
+      Local deployment
+    </a>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Run-The-Example/" title="Run the example" class="md-nav__link">
+      Run the example
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Appstore-Example/" title="Appstore example" class="md-nav__link">
+      Appstore example
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/foundato/kelon/edit/master/docs/how-to/Local-Deployment.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="local-deployment">Local Deployment</h1>
+<p>To run Kelon locally we recommend you to use Docker to build a container.
+<div class="highlight"><pre><span></span><span class="c1"># Clone the repository</span>
+$ git clone git@github.com:Foundato/kelon.git
+
+<span class="c1"># Build the container</span>
+$ docker build . -t kelon:latest
+
+<span class="c1"># Or install kelon on your local machine</span>
+$ go mod download
+$ go build -o ./kelon ./cmd/kelon
+</pre></div></p>
+<p>After kelon is installed, you have to create following configuration files that tell Kelon which data sources it should connect to and how it should map incoming requests to OPA-Packages.</p>
+<h1 id="configuration">Configuration</h1>
+<h4 id="datastoreyml">datastore.yml</h4>
+<p>Defines all available datastores and their entities</p>
+<div class="highlight"><pre><span></span><span class="c1"># Datastores to connect to</span>
+<span class="nt">datastores</span><span class="p">:</span>
+  <span class="nt">mysql</span><span class="p">:</span>                              <span class="c1"># Datastore&#39;s alias (it will be used throughout all your policies)</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mysql</span>                       <span class="c1"># Datastore type</span>
+    <span class="nt">connection</span><span class="p">:</span>                       <span class="c1"># Information about the datastore connection</span>
+      <span class="nt">host</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">localhost</span>
+      <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3306</span>
+      <span class="nt">database</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">appstore</span>
+      <span class="nt">user</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">You</span>
+      <span class="nt">password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SuperSecure</span>
+
+<span class="c1"># Entity-Schemas define the entities of one schema inside a datastore</span>
+<span class="nt">entity_schemas</span><span class="p">:</span>
+  <span class="nt">mysql</span><span class="p">:</span>                                <span class="c1"># Datastore alias</span>
+    <span class="nt">appstore</span><span class="p">:</span>                           <span class="c1"># Target schema</span>
+      <span class="nt">entities</span><span class="p">:</span>                         <span class="c1"># List of all entities of the schema</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">users</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">app_rights</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">apps</span>
+</pre></div>
+
+<h4 id="call-operandsmysqlyml">call-operands/mysql.yml</h4>
+<p>Open Policy Agent has <a href="https://www.openpolicyagent.org/docs/latest/policy-language/#operators">builtin call operands</a> which may not be the same as the ones of each datasource.
+Therefore each datasource-type has to have a mappings-file inside the folder 'call-operands'.</p>
+<div class="highlight"><pre><span></span><span class="c1"># Call operands map OPA&#39;s functions to datastore-native ones.</span>
+<span class="c1"># You find more advanced files in directory /call-operands</span>
+<span class="nt">call-operands</span><span class="p">:</span>
+  <span class="c1"># Relational operands</span>
+  <span class="p p-Indicator">-</span> <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">eq</span>
+    <span class="nt">args</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+    <span class="nt">mapping</span><span class="p">:</span> <span class="s">&quot;$0</span><span class="nv"> </span><span class="s">=</span><span class="nv"> </span><span class="s">$1&quot;</span>
+  <span class="p p-Indicator">-</span> <span class="nt">op</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">equal</span>
+    <span class="nt">args</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+    <span class="nt">mapping</span><span class="p">:</span> <span class="s">&quot;$0</span><span class="nv"> </span><span class="s">=</span><span class="nv"> </span><span class="s">$1&quot;</span>
+</pre></div>
+
+<h4 id="apiyml">api.yml</h4>
+<p>Map incoming api-requests to OPA-Queries executed on data sources.</p>
+<div class="highlight"><pre><span></span><span class="c1"># Mappings for the APIs that your services expose</span>
+<span class="nt">apis</span><span class="p">:</span>
+  <span class="c1"># Route all requests starting with /api to datastore with alias &#39;mysql&#39;</span>
+  <span class="p p-Indicator">-</span> <span class="nt">path-prefix</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/api</span>
+    <span class="nt">datastore</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mysql</span>
+    <span class="c1"># Mappings for incoming paths (the most specific mapping is picked in case of multiple mappings)</span>
+    <span class="nt">mappings</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/apps/.*</span>                   <span class="c1"># Matches [GET, POST] /api/apps/.*</span>
+        <span class="nt">package</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">applications</span>            <span class="c1"># Maps to OPA-Query &#39;data.applications.allow == true&#39;</span>
+        <span class="c1"># If no methods are supplied, all methods are matched</span>
+        <span class="nt">methods</span><span class="p">:</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">GET</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">POST</span>
+</pre></div>
+
+<h4 id="opayml">opa.yml</h4>
+<p>Internally used by Open Policy Agent.</p>
+<div class="highlight"><pre><span></span><span class="nt">labels</span><span class="p">:</span>
+  <span class="nt">app</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Kelon</span>
+  <span class="nt">region</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">europe-west3</span>
+  <span class="nt">environment</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">development</span>
+
+<span class="nt">decision_logs</span><span class="p">:</span>
+  <span class="nt">console</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+  <span class="nt">reporting</span><span class="p">:</span>
+    <span class="nt">min_delay_seconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
+    <span class="nt">max_delay_seconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">600</span>
+
+<span class="nt">default_decision</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/http/authz/allow</span>
+</pre></div>
+
+<h4 id="policiesapplicationsrego">policies/applications.rego</h4>
+<p>Contains OPA-Regos. Note the unknown 'mysql' here which is automatically used by Kelon to translate the </p>
+<p>request to path: '/api/apps/3' </p>
+<p>into the SQL-Statement: 'SELECT count(*) FROM appstore.apps WHERE apps.stars = 5 and apps.id = 3'</p>
+<div class="highlight"><pre><span></span>package applications
+
+# Deny all by default
+allow = false
+
+# Path: GET /api/apps/&lt;number&gt;
+# All apps withe 5 stars can be viewed
+allow = true {
+    input.method = &quot;GET&quot;
+    input.path = [&quot;api&quot;, &quot;apps&quot;, appId]
+
+    data.mysql.apps[app].stars == 5
+    app.id == appId
+}
+</pre></div>
+
+<h1 id="run">Run</h1>
+<p>To run Kelon, there has to be a available MySQL database with the specified connection.
+Feel free to use the MySQL-Database from our example (which is already configured for above configs).</p>
+<div class="highlight"><pre><span></span>$ docker-compose up -d mysql
+</pre></div>
+
+<p>Now you should be able to run kelon:</p>
+<div class="highlight"><pre><span></span>$ kelon start
+</pre></div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../kelon/architecture/Query-AST/" title="Query AST" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Query AST
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../Run-The-Example/" title="Run the example" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Run the example
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.ac79c3b0.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>
