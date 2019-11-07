@@ -26,6 +26,7 @@ markdown_extensions:
 pages:
   - "Introduction": "index.md"
   - "Kelon":
+    - "In a nutshell": "kelon/In-A-Nutshell.md"
     - "Introduction": "kelon/Introduction.md"
     - "Architecture":
       - "Components": "kelon/architecture/Components.md"

@@ -1,6 +1,6 @@
 # Introduction
 
-To get a better understanding of how kelon is built, have a look at following info graphics to get a better understanding of the surrounding environment of Kelon.
+To get a better understanding of how kelon is built, have a look at following infographics to get a better understanding of the surrounding environment of Kelon.
 
 ## External interfaces
 
