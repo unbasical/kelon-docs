@@ -38,9 +38,9 @@ entity_schemas:
   mysql:                                # Datastore alias
     appstore:                           # Target schema
       entities:                         # List of all entities of the schema
-        - users
-        - app_rights
-        - apps
+        - name: users
+        - name: app_rights
+        - name: apps
 ```
 
 #### call-operands/mysql.yml
