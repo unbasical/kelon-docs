@@ -27,8 +27,9 @@ pages:
   - "Introduction": "index.md"
   - "Kelon":
     - "In a nutshell": "kelon/In-A-Nutshell.md"
+    - "Initial exploration": "kelon/Initial-Exploration.md"
     - "Configuration": "kelon/Configuration.md"
-    - "Introduction": "kelon/Introduction.md"
+    - "Deconstructing the example": "kelon/Example-Deconstruction.md"
     - "Architecture":
       - "Components": "kelon/architecture/Components.md"
       - "Request mapping": "kelon/architecture/Request-Mapping.md"

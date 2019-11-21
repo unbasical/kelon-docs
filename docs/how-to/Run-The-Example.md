@@ -115,6 +115,7 @@ $ curl --request POST \
 > {"result":true}
 ```
 
+There is also a POSTMAN-COLLECTION in the example directory which contains a bunch of queries agains all three datasources (PostgreSQL, MySQL, MongoDB).
 Feel free to play around with the existing regos and databases to get a feeling of how to write policies and configure Kelon.
 
 ## Clean up
