@@ -298,6 +298,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#kelon-cli" class="md-nav__link">
+    Kelon (CLI)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#datastoreyml" class="md-nav__link">
     datastore.yml
   </a>
@@ -494,6 +501,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#kelon-cli" class="md-nav__link">
+    Kelon (CLI)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#datastoreyml" class="md-nav__link">
     datastore.yml
   </a>
@@ -541,6 +555,122 @@
                 
                 
                 <h1 id="configuration">Configuration</h1>
+<h2 id="kelon-cli">Kelon (CLI)</h2>
+<p>Kelon already comes with a CLI. Just type <code>kelon --help</code> after you installed it.
+<div class="highlight"><pre><span></span>usage: kelon [&lt;flags&gt;] &lt;command&gt; [&lt;args&gt; ...]
+
+Kelon policy enforcer.
+
+Flags:
+  -h, --help                 Show context-sensitive help (also try --help-long and --help-man).
+  -o, --opa-conf=./opa.yml   Path to the OPA configuration yaml.
+  -r, --rego-dir=./policies  Dir containing .rego files which will be loaded into OPA.
+      --path-prefix=&quot;/v1&quot;    Prefix which is used to proxy OPA&#39;s Data-API.
+  -p, --port=8181            Port on which the proxy endpoint is served.
+      --envoy-port=9191      Also start Envoy GRPC-Proxy on specified port so integrate kelon with Istio.
+      --envoy-dry-run        Enable/Disable the dry run feature of the envoy-proxy.
+      --envoy-reflection     Enable/Disable the reflection feature of the envoy-proxy.
+  -d, --datastore-conf=./datastore.yml  
+                             Path to the datastore configuration yaml.
+  -a, --api-conf=./api.yml   Path to the api configuration yaml.
+      --config-watcher-path=./policies  
+                             Path where the config watcher should listen for changes.
+      --version              Show application version.
+
+Commands:
+  help [&lt;command&gt;...]
+    Show help.
+
+  start
+    Start kelon in production mode.
+
+  debug
+    Enable debug mode.
+</pre></div></p>
+<p>In addition to that Kelon provides the possibility to be configured via environment variables. This may be handy if you want to run it inside a container.</p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Short</th>
+<th>Environment</th>
+<th>Default</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--opa-conf</td>
+<td>-o</td>
+<td>OPA_CONF</td>
+<td>./opa.yml</td>
+<td>Existing File</td>
+</tr>
+<tr>
+<td>--rego-dir</td>
+<td>-r</td>
+<td>REGO_DIR</td>
+<td>./policies</td>
+<td>Existing Dir</td>
+</tr>
+<tr>
+<td>--path-prefix</td>
+<td></td>
+<td>PATH_PREFIX</td>
+<td>/v1</td>
+<td>String</td>
+</tr>
+<tr>
+<td>--port</td>
+<td>-p</td>
+<td>PORT</td>
+<td>8181</td>
+<td>Number</td>
+</tr>
+<tr>
+<td>--envoy-port</td>
+<td></td>
+<td>ENVOY_PORT</td>
+<td>9191</td>
+<td>Number</td>
+</tr>
+<tr>
+<td>--envoy-dry-run</td>
+<td></td>
+<td>ENVOY_DRY_RUN</td>
+<td>false</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>--envoy-reflection</td>
+<td></td>
+<td>ENVOY_REFLECTION</td>
+<td>false</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>--datastore-conf</td>
+<td>-d</td>
+<td>DATASTORE_CONF</td>
+<td>./datastore.yml</td>
+<td>Existing File</td>
+</tr>
+<tr>
+<td>--api-conf</td>
+<td>-a</td>
+<td>API_CONF</td>
+<td>./api.yml</td>
+<td>Existing File</td>
+</tr>
+<tr>
+<td>--config-watcher-path</td>
+<td></td>
+<td>CONFIG_WATCHER_PATH</td>
+<td>./policies</td>
+<td>Existing Dir</td>
+</tr>
+</tbody>
+</table>
 <h2 id="datastoreyml">datastore.yml</h2>
 <p>The <code>datastore.yml</code> defines all available datastores and their entities.</p>
 <div class="highlight"><pre><span></span><span class="c1"># List of all datastores which kelon should be able to connect to</span>
