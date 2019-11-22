@@ -9,20 +9,20 @@ usage: kelon [<flags>] <command> [<args> ...]
 Kelon policy enforcer.
 
 Flags:
-  -h, --help                Show context-sensitive help (also try --help-long and --help-man).
-  -o, --opa-conf=./opa.yml  Path to the OPA configuration yaml.
-  -r, --rego-dir=./         Dir containing .rego files which will be loaded into OPA.
-      --path-prefix="/v1"   Prefix which is used to proxy OPA's Data-API.
-  -p, --port=8181           Port on which the proxy endpoint is served.
-      --envoy-port=9191     Also start Envoy GRPC-Proxy on specified port so integrate kelon with Istio.
-      --envoy-dry-run       Enable/Disable the dry run feature of the envoy-proxy.
-      --envoy-reflection    Enable/Disable the reflection feature of the envoy-proxy.
+  -h, --help                 Show context-sensitive help (also try --help-long and --help-man).
+  -o, --opa-conf=./opa.yml   Path to the OPA configuration yaml.
+  -r, --rego-dir=./policies  Dir containing .rego files which will be loaded into OPA.
+      --path-prefix="/v1"    Prefix which is used to proxy OPA's Data-API.
+  -p, --port=8181            Port on which the proxy endpoint is served.
+      --envoy-port=9191      Also start Envoy GRPC-Proxy on specified port so integrate kelon with Istio.
+      --envoy-dry-run        Enable/Disable the dry run feature of the envoy-proxy.
+      --envoy-reflection     Enable/Disable the reflection feature of the envoy-proxy.
   -d, --datastore-conf=./datastore.yml  
-                            Path to the datastore configuration yaml.
-  -a, --api-conf=./api.yml  Path to the api configuration yaml.
-      --config-watcher-path=./conf  
-                            Path where the config watcher should listen for changes.
-      --version             Show application version.
+                             Path to the datastore configuration yaml.
+  -a, --api-conf=./api.yml   Path to the api configuration yaml.
+      --config-watcher-path=./policies  
+                             Path where the config watcher should listen for changes.
+      --version              Show application version.
 
 Commands:
   help [<command>...]
@@ -40,7 +40,7 @@ In addition to that Kelon provides the possibility to be configured via environm
 |Flag|Short|Environment|Default|Type|
 |----|-----|-----------|-------|----|
 |--opa-conf|-o|OPA_CONF|./opa.yml|Existing File|
-|--rego-dir|-r|REGO_DIR|./regos|Existing Dir|
+|--rego-dir|-r|REGO_DIR|./policies|Existing Dir|
 |--path-prefix||PATH_PREFIX|/v1|String|
 |--port|-p|PORT|8181|Number|
 |--envoy-port||ENVOY_PORT|9191|Number|
@@ -48,7 +48,7 @@ In addition to that Kelon provides the possibility to be configured via environm
 |--envoy-reflection||ENVOY_REFLECTION|false|Boolean|
 |--datastore-conf|-d|DATASTORE_CONF|./datastore.yml|Existing File|
 |--api-conf|-a|API_CONF|./api.yml|Existing File|
-|--config-watcher-path||CONFIG_WATCHER_PATH|./regos|Existing Dir|
+|--config-watcher-path||CONFIG_WATCHER_PATH|./policies|Existing Dir|
 
 ## datastore.yml
 
