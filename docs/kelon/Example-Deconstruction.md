@@ -1,6 +1,6 @@
 # Deconstructing the example
 
-To become a deep understanding of how Kelon works in action, we now deconstruct the entire internal process of kelon while executing the example setup provided inside the repository. Therefore the following three infographics show three example queries made to Kelon.
+To become a deep understanding of how Kelon works in action, we now deconstruct the entire internal process of Kelon while executing the example setup provided inside the repository. Therefore the following infographic shows an example query and its entire way through Kelon.
 
 ## (My)SQL
 
