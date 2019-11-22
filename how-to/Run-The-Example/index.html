@@ -623,7 +623,7 @@
                 
                 
                 <h1 id="run-the-example">Run the example</h1>
-<p>In order to demonstrate the usage of Kelon, we provide an example setup which shows a configuration of kelon with two separate datastores (PostgreSQL &amp; MySQL). To demonstrate the ease of switching between datastores with kelon, both datastores have the same data set.</p>
+<p>In order to demonstrate the usage of Kelon, we provide several example setups which all show a configuration of Kelon with three separate datastores (PostgreSQL, MySQL &amp; MongoDB) in different environments. To demonstrate the ease of switching between datastores with kelon, all three datastores have the same data set.</p>
 <h2 id="datamodel">Datamodel</h2>
 <p>The datamodel is fairly simple but contains everything you will need in a more advanced setup (i.e. JOINS).</p>
 <p><img alt="Datamodel" src="../../img/how-to/Example_ER.png" /></p>
@@ -704,8 +704,8 @@
 </tbody>
 </table>
 <h2 id="policies">Policies</h2>
-<p>This example project contains four basic policies with should give you a better understanding of how to write policies using Kelon.
-If you have a closer look at <a href="https://github.com/Foundato/kelon/blob/master/examples/config/datastore.yml">datastore.yml</a> &amp; <a href="https://github.com/Foundato/kelon/blob/master/examples/config/api.yml">api.yml</a> you will notice, that the table's data inside your datastores can be 'magically' accessed inside the OPA-Regos with the following Syntax:</p>
+<p>Each example project contains four basic policies with should give you a better understanding of how to write policies using Kelon.
+If you have a closer look at <a href="https://github.com/Foundato/kelon/blob/master/examples/local/config/datastore.yml">datastore.yml</a> &amp; <a href="https://github.com/Foundato/kelon/blob/master/examples/local/config/api.yml">api.yml</a> you will notice, that the table's data inside your datastores can be 'magically' accessed inside the OPA-Regos with the following Syntax:</p>
 <p><code>data.{datastore-alias}.{entity}.{column}</code></p>
 <p>With this handy feature, we can write following policies:</p>
 <ol>
