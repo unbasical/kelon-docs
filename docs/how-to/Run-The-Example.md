@@ -1,6 +1,6 @@
 # Run the example
 
-In order to demonstrate the usage of Kelon, we provide an example setup which shows a configuration of kelon with two separate datastores (PostgreSQL & MySQL). To demonstrate the ease of switching between datastores with kelon, both datastores have the same data set.
+In order to demonstrate the usage of Kelon, we provide several example setups which all show a configuration of Kelon with three separate datastores (PostgreSQL, MySQL & MongoDB) in different environments. To demonstrate the ease of switching between datastores with kelon, all three datastores have the same data set.
 
 ## Datamodel
 
@@ -34,8 +34,8 @@ The datamodel is fairly simple but contains everything you will need in a more a
 
 ## Policies
 
-This example project contains four basic policies with should give you a better understanding of how to write policies using Kelon.
-If you have a closer look at [datastore.yml](https://github.com/Foundato/kelon/blob/master/examples/config/datastore.yml) & [api.yml](https://github.com/Foundato/kelon/blob/master/examples/config/api.yml) you will notice, that the table's data inside your datastores can be 'magically' accessed inside the OPA-Regos with the following Syntax:
+Each example project contains four basic policies with should give you a better understanding of how to write policies using Kelon.
+If you have a closer look at [datastore.yml](https://github.com/Foundato/kelon/blob/master/examples/local/config/datastore.yml) & [api.yml](https://github.com/Foundato/kelon/blob/master/examples/local/config/api.yml) you will notice, that the table's data inside your datastores can be 'magically' accessed inside the OPA-Regos with the following Syntax:
 
 `data.{datastore-alias}.{entity}.{column}`
 
