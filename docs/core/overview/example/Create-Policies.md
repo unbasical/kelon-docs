@@ -80,12 +80,19 @@ Additianally the join between the table `users` and `app_rights` on the conditio
 
 `users.id == app_rights.user_id` 
 
-is also done with the statements
+is done with the statements
 ```rego
-    data.mysql.users[u].name == input.user      # SELECT users
-    data.mysql.app_rights[r].right == "OWNER"   # JOIN app_rights
-    u.id == r.user_id                           # ON user.id = app_rights.user_id
-                                                # WHERE users.name = {input.user} AND app_rights.right = 'OWNER'
+    data.mysql.users[u].id == data.mysql.app_rights[r].user_id
+    u.name == input.user
+    r.right == "OWNER"
+    r.app_id == appId
+
+    # SELECT count(*) FROM users
+    #   INNER JOIN app_rights
+    #       ON users.id = app_rights.user_id
+    # WHERE users.name = {input.user}
+    #   AND app_rights.right = 'OWNER'
+    #   AND app_rights.app_id = {appId}
 ```
 
 ## No-SQL
