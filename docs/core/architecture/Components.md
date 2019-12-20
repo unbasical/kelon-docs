@@ -1,6 +1,6 @@
 # Components
 
-The core architecture of kelon was designed to be extremely modular and support the writing and loading of own implementations of components (so called plugins).
+The main goal of Kelons core design was to make extensible with ease while keeping it functional and efficient. Therefore the entire applicaiton logic was divided into small closely coupled components which can be easily replaced by self implemented plugins.
 
 ![Components](../../img/kelon/architecture/Components.png)
 
