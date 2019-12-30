@@ -1,7 +1,6 @@
 site_name: Kelon Docs
 theme: material
 
-
 repo_name: foundato/kelon
 repo_url: https://github.com/foundato/kelon
 
@@ -24,17 +23,30 @@ markdown_extensions:
   - pymdownx.tilde
 
 pages:
-  - "Introduction": "index.md"
-  - "Kelon":
-    - "In a nutshell": "kelon/In-A-Nutshell.md"
-    - "Initial exploration": "kelon/Initial-Exploration.md"
-    - "Configuration": "kelon/Configuration.md"
-    - "Deconstructing the example": "kelon/Example-Deconstruction.md"
+  - "Core Docs":
+    - "Introduction": "index.md"
+    - "Overview":
+      - "Example": "core/overview/Simple-Example.md"
+      - "Create Policies": "core/overview/example/Create-Policies.md"
+      - "Configure Kelon": "core/overview/example/Configure-Kelon.md"
+      - "Run the example": "core/overview/example/Run-Example.md"
+    - "Philosophy":
+      - "Why external Policy Enforcement": "core/philosophy/Why-External-Policy-Enforcement.md"
+      - "What is a Policy": "core/philosophy/What-Is-A-Policy.md"
     - "Architecture":
-      - "Components": "kelon/architecture/Components.md"
-      - "Request mapping": "kelon/architecture/Request-Mapping.md"
-      - "Query AST": "kelon/architecture/Query-AST.md"
-  - "How-To's":
-    - "Local deployment": "how-to/Local-Deployment.md"
-    - "Run the example": "how-to/Run-The-Example.md"
-    - "Appstore example": "how-to/Appstore-Example.md"
+      - "Components": "core/architecture/Components.md"
+      - "Policy Translation": "core/architecture/Policy-Translation.md"
+      - "Query-AST": "core/architecture/Query-AST.md"
+    - "Integrating Kelon":
+      - "Services and Kelon": "core/integration/Services-And-Kelon.md"
+      - "Kelon and Gloo": "core/integration/Kelon-Gloo.md"
+      - "Kelon and Istio": "core/integration/Kelon-Istio.md"
+    - "Extending Kelon":
+      - "Writing plugins": "core/extend/Write-Plugins.md"
+      - "Write a datasource plugin": "core/extend/Write-Datastore-Plugin.md"
+  - "Operations":
+    - "APIs": "operations/APIs.md"
+    - "Configuration": "operations/Configuration.md"
+    - "Deployment": "operations/Deployment.md"
+    - "Monitoring": "operations/Monitoring.md"
+    - "Security": "operations/Security.md"

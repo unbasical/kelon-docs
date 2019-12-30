@@ -9,20 +9,23 @@ usage: kelon [<flags>] <command> [<args> ...]
 Kelon policy enforcer.
 
 Flags:
-  -h, --help                 Show context-sensitive help (also try --help-long and --help-man).
-  -o, --opa-conf=./opa.yml   Path to the OPA configuration yaml.
-  -r, --rego-dir=./policies  Dir containing .rego files which will be loaded into OPA.
-      --path-prefix="/v1"    Prefix which is used to proxy OPA's Data-API.
-  -p, --port=8181            Port on which the proxy endpoint is served.
-      --envoy-port=9191      Also start Envoy GRPC-Proxy on specified port so integrate kelon with Istio.
-      --envoy-dry-run        Enable/Disable the dry run feature of the envoy-proxy.
-      --envoy-reflection     Enable/Disable the reflection feature of the envoy-proxy.
+  -h, --help                   Show context-sensitive help (also try --help-long and --help-man).
+  -o, --opa-conf=./opa.yml     Path to the OPA configuration yaml.
+  -r, --rego-dir=./policies    Dir containing .rego files which will be loaded into OPA.
+      --path-prefix="/v1"      Prefix which is used to proxy OPA's Data-API.
+  -p, --port=8181              Port on which the proxy endpoint is served.
+      --envoy-port=ENVOY-PORT  Also start Envoy GRPC-Proxy on specified port so integrate kelon with Istio.
+      --envoy-dry-run          Enable/Disable the dry run feature of the envoy-proxy.
+      --envoy-reflection       Enable/Disable the reflection feature of the envoy-proxy.
+      --respond-with-status-code  
+                               Communicate Decision via status code 200 (ALLOW) or 403 (DENY).
+      --istio-port=ISTIO-PORT  Also start Istio Mixer Out of Tree Adapter on specified port so integrate kelon with Istio.
   -d, --datastore-conf=./datastore.yml  
-                             Path to the datastore configuration yaml.
-  -a, --api-conf=./api.yml   Path to the api configuration yaml.
+                               Path to the datastore configuration yaml.
+  -a, --api-conf=./api.yml     Path to the api configuration yaml.
       --config-watcher-path=./policies  
-                             Path where the config watcher should listen for changes.
-      --version              Show application version.
+                               Path where the config watcher should listen for changes.
+      --version                Show application version.
 
 Commands:
   help [<command>...]
@@ -33,6 +36,7 @@ Commands:
 
   debug
     Enable debug mode.
+
 ```
 
 In addition to that Kelon provides the possibility to be configured via environment variables. This may be handy if you want to run it inside a container.
@@ -43,12 +47,14 @@ In addition to that Kelon provides the possibility to be configured via environm
 |--rego-dir|-r|REGO_DIR|./policies|Existing Dir|
 |--path-prefix||PATH_PREFIX|/v1|String|
 |--port|-p|PORT|8181|Number|
-|--envoy-port||ENVOY_PORT|9191|Number|
+|--envoy-port||ENVOY_PORT||Number|
+|--istio-port||ISTIO_PORT||Number|
 |--envoy-dry-run||ENVOY_DRY_RUN|false|Boolean|
 |--envoy-reflection||ENVOY_REFLECTION|false|Boolean|
 |--datastore-conf|-d|DATASTORE_CONF|./datastore.yml|Existing File|
 |--api-conf|-a|API_CONF|./api.yml|Existing File|
 |--config-watcher-path||CONFIG_WATCHER_PATH|./policies|Existing Dir|
+|--respond-with-status-code||RESPOND_WITH_STATUS_CODE|false|bool|
 
 ## datastore.yml
 
@@ -85,6 +91,10 @@ datastores:
 
       # The password of the user
       [password: <string>]
+
+      # Connection options for the database connection
+      # To get all available options for your database, see section "Connection options" below
+      [<option>: <string>]
 
 
 # Entity-Schemas define the entities of one schema inside a datastore.
@@ -147,6 +157,21 @@ entity_schemas:
               # Collection's optinal alias (used inside regos)
               [alias: <string> | optional]
 ```
+
+### Connection options
+
+Kelon supports different databases (PostgreSQL, MySQL and MongoDB) each of them having different connection options.
+To keep the configuration of connection options as simple as possible, Kelon just passes all key-value-pairs of each the datastore connection (despite the dedicated ones like i.e. username, host, port, etc.) directly to the used database adapter. Following table should help to lookup all available options for each supported database:
+
+|Database|Used driver|Options|
+|--------|-----------|-------|
+|PostgreSQL|github.com/lib/pq|[Go Docs, Connection String Parameters](https://godoc.org/github.com/lib/pq#hdr-Connection_String_Parameters) |
+|MySQL|github.com/go-sql-driver/mysql|[Go Docs, DSN Parameters](https://github.com/go-sql-driver/mysql#parameters)|
+|MongoDB|go.mongodb.org/mongo-driver/mongo|[Mongo-Docs, Connection options](https://docs.mongodb.com/manual/reference/connection-string/#connections-connection-options)|
+
+### Injecting environment variables
+
+Each value inside the datastore.yml file can be replaced with a string follwing the pattern `${<environment variable>}` which is replaced with the value of the environment variable at startup. 
 
 ## call-operands/{datastore-type}.yml
 

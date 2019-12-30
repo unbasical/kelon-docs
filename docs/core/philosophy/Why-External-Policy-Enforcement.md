@@ -1,0 +1,7 @@
+# Why external policy enforcement
+
+In modern software development where terms like 'Microservices' and 'Agile' rule almost every Kick-Off-Meeting, the need of developing large systems while keeping the teams small and language independent gets more and more important. While the idiom 'Divide And Conquer' works for the splitting of domains and development-teams, splitting up central processes like authorization won't work with this approach.
+
+Implementing authorization policies into each microservice will quickly end in a large pile of different services all implementing (or maybe not implementing) parts of the previously defined business rules. This may become even more difficult if you want to enforce global policies throughout your entire system.
+
+Therefore **external-policy-enforcement** and with it the [Open Policy Agent (OPA)](https://www.openpolicyagent.org/) has arisen in the Open-Source Community. The OPA-Way of enforcing policies is by implementing and also testing all your business-rules in one single component (The Open Policy Agent) and make your services query it for permission on any incoming user request. As a result your services become dumb (in terms of authorization) which makes them easier to implement. On the other hand the enforcement of your policies becomes much more transparent and easier to test and review because all your policies are stored in one place.
