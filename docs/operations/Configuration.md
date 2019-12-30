@@ -92,6 +92,10 @@ datastores:
       # The password of the user
       [password: <string>]
 
+      # Connection options for the database connection
+      # To get all available options for your database, see section "Connection options" below
+      [<option>: <string>]
+
 
 # Entity-Schemas define the entities of one schema inside a datastore.
 # An entity_schema has several purposes:
@@ -153,6 +157,18 @@ entity_schemas:
               # Collection's optinal alias (used inside regos)
               [alias: <string> | optional]
 ```
+
+### Connection options
+
+Kelon supports different databases (PostgreSQL, MySQL and MongoDB) each of them having different connection options.
+To keep the configuration of connection options as simple as possible, Kelon just passes all key-value-pairs of each the datastore connection (despite the dedicated ones like i.e. username, host, port, etc.) directly to the used database adapter. Following table should help to lookup all available options for each supported database:
+
+|Database|Used driver|Options|
+|--------|-----------|-------|
+|PostgreSQL|github.com/lib/pq|[Go Docs, Connection String Parameters](https://godoc.org/github.com/lib/pq#hdr-Connection_String_Parameters) |
+|MySQL|github.com/go-sql-driver/mysql|[Go Docs, DSN Parameters](https://github.com/go-sql-driver/mysql#parameters)|
+|MongoDB|go.mongodb.org/mongo-driver/mongo|[Mongo-Docs, Connection options](https://docs.mongodb.com/manual/reference/connection-string/#connections-connection-options)|
+
 
 ## call-operands/{datastore-type}.yml
 

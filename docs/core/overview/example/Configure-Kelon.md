@@ -33,6 +33,7 @@ datastores:
       database: appstore
       user: You
       password: SuperSecure
+      sslmode: disable
 
   mongo:
     type: mongo
@@ -77,6 +78,8 @@ entity_schemas:
 ```
 
 While the definition of an entity_schema for a SQL-Datastore is straight forward (Just list all entities of each datastore), creating a entity_schema for a No-SQL-Datastore (like MongoDB) ist a bit more difficult. Here you need to map the Structure of your nested entities so that Kelon can use this nested structure to find the right query-path inside your No-SQL-Datastore when joining entities inside your policies.
+
+There is also the possibility to add more connection options for each datastore. Please see the [Operations Guide](/operations/Configuration/#connection-options) for more information.
 
 ## api.yml
 
