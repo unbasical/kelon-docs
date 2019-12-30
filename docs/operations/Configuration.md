@@ -169,6 +169,9 @@ To keep the configuration of connection options as simple as possible, Kelon jus
 |MySQL|github.com/go-sql-driver/mysql|[Go Docs, DSN Parameters](https://github.com/go-sql-driver/mysql#parameters)|
 |MongoDB|go.mongodb.org/mongo-driver/mongo|[Mongo-Docs, Connection options](https://docs.mongodb.com/manual/reference/connection-string/#connections-connection-options)|
 
+### Injecting environment variables
+
+Each value inside the datastore.yml file can be replaced with a string follwing the pattern `${<environment variable>}` which is replaced with the value of the environment variable at startup. 
 
 ## call-operands/{datastore-type}.yml
 
