@@ -10,51 +10,104 @@ Kelon policy enforcer.
 
 Flags:
   -h, --help                   Show context-sensitive help (also try --help-long and --help-man).
-  -o, --opa-conf=./opa.yml     Path to the OPA configuration yaml.
-  -r, --rego-dir=./policies    Dir containing .rego files which will be loaded into OPA.
-      --path-prefix="/v1"      Prefix which is used to proxy OPA's Data-API.
-  -p, --port=8181              Port on which the proxy endpoint is served.
-      --envoy-port=ENVOY-PORT  Also start Envoy GRPC-Proxy on specified port so integrate kelon with Istio.
-      --envoy-dry-run          Enable/Disable the dry run feature of the envoy-proxy.
-      --envoy-reflection       Enable/Disable the reflection feature of the envoy-proxy.
-      --respond-with-status-code  
-                               Communicate Decision via status code 200 (ALLOW) or 403 (DENY).
-      --istio-port=ISTIO-PORT  Also start Istio Mixer Out of Tree Adapter on specified port so integrate kelon with Istio.
   -d, --datastore-conf=./datastore.yml  
                                Path to the datastore configuration yaml.
   -a, --api-conf=./api.yml     Path to the api configuration yaml.
-      --config-watcher-path=./policies  
+      --config-watcher-path=CONFIG-WATCHER-PATH  
                                Path where the config watcher should listen for changes.
+  -o, --opa-conf=./opa.yml     Path to the OPA configuration yaml.
+  -r, --rego-dir=REGO-DIR      Dir containing .rego files which will be loaded into OPA.
+      --path-prefix="/v1"      Prefix which is used to proxy OPA's Data-API.
+  -p, --port=8181              Port on which the proxy endpoint is served.
+      --preprocess-policies    Preprocess incoming policies for internal use-case (EXPERIMENTAL FEATURE! DO NOT USE!).
+      --log-level=INFO         Log-Level for Kelon. Must be one of [DEBUG, INFO, WARN, ERROR]
+      --respond-with-status-code  
+                               Communicate Decision via status code 200 (ALLOW) or 403 (DENY).
+      --envoy-port=ENVOY-PORT  Also start Envoy GRPC-Proxy on specified port so integrate kelon with Istio.
+      --envoy-dry-run          Enable/Disable the dry run feature of the envoy-proxy.
+      --envoy-reflection       Enable/Disable the reflection feature of the envoy-proxy.
+      --istio-port=ISTIO-PORT  Also start Istio Mixer Out of Tree Adapter on specified port so integrate kelon with Istio.
+      --istio-credential-file=ISTIO-CREDENTIAL-FILE  
+                               Filepath containing istio credentials for mTLS (i.e. adapter.crt).
+      --istio-private-key-file=ISTIO-PRIVATE-KEY-FILE  
+                               Filepath containing istio private key for mTLS (i.e. adapter.key).
+      --istio-certificate-file=ISTIO-CERTIFICATE-FILE  
+                               Filepath containing istio certificate for mTLS (i.e. ca.pem).
+      --telemetry-service=TELEMETRY-SERVICE  
+                               Service that is used for telemetry [Prometheus, ApplicationInsights]
+      --instrumentation-key=INSTRUMENTATION-KEY  
+                               The ApplicationInsights-InstrumentationKey that is used to connect to the API.
+      --application-insights-service-name="Kelon"  
+                               The name which will be displayed for kelon inside application insights.
+      --application-insights-max-batch-size=8192  
+                               Configure how many items can be sent in one call to the data collector.
+      --application-insights-max-batch-interval-seconds=2  
+                               Configure the maximum delay before sending queued telemetry.
+      --application-insights-log-levels="fatal,panic,error,warn"  
+                               Configure log levels which are sent. Allowed values are [fatal, panic, error, warn, info, debug, trace]
+      --application-insights-stats-interval-seconds=5  
+                               Interval in seconds in which system stats are measured and sent.
       --version                Show application version.
 
 Commands:
   help [<command>...]
     Show help.
 
-  start
-    Start kelon in production mode.
-
-  debug
-    Enable debug mode.
+  run
+    Run kelon in production mode.
 
 ```
 
 In addition to that Kelon provides the possibility to be configured via environment variables. This may be handy if you want to run it inside a container.
 
+### General
+
 |Flag|Short|Environment|Default|Type|
 |----|-----|-----------|-------|----|
+|--datastore-conf|-d|DATASTORE_CONF|./datastore.yml|Existing File|
+|--api-conf|-a|API_CONF|./api.yml|Existing File|
+|--config-watcher-path||CONFIG_WATCHER_PATH|./policies|Existing Dir|
 |--opa-conf|-o|OPA_CONF|./opa.yml|Existing File|
 |--rego-dir|-r|REGO_DIR|./policies|Existing Dir|
 |--path-prefix||PATH_PREFIX|/v1|String|
 |--port|-p|PORT|8181|Number|
+|--preprocess-policies||PREPROCESS_POLICIES|false|Boolean|
+|--respond-with-status-code||RESPOND_WITH_STATUS_CODE|false|Boolean|
+
+### Envoy
+
+|Flag|Short|Environment|Default|Type|
+|----|-----|-----------|-------|----|
 |--envoy-port||ENVOY_PORT||Number|
-|--istio-port||ISTIO_PORT||Number|
 |--envoy-dry-run||ENVOY_DRY_RUN|false|Boolean|
 |--envoy-reflection||ENVOY_REFLECTION|false|Boolean|
-|--datastore-conf|-d|DATASTORE_CONF|./datastore.yml|Existing File|
-|--api-conf|-a|API_CONF|./api.yml|Existing File|
-|--config-watcher-path||CONFIG_WATCHER_PATH|./policies|Existing Dir|
-|--respond-with-status-code||RESPOND_WITH_STATUS_CODE|false|bool|
+
+### Istio
+
+|Flag|Short|Environment|Default|Type|
+|----|-----|-----------|-------|----|
+|--istio-port||ISTIO_PORT||Number|
+|--istio-credential-file||ISTIO_CREDENTIAL_FILE||Existing File|
+|--istio-private-key-file||ISTIO_PRIVATE_KEY_FILE||Existing File|
+|--istio-certificate-file||ISTIO_CERTIFICATE_FILE||Existing File|
+
+### Telemetry
+
+|Flag|Short|Environment|Default|Type|
+|----|-----|-----------|-------|----|
+|--telemetry-service||TELEMETRY_SERVICE||Enum|
+
+#### Application Insights
+When you have set `ApplicationInsights` as --telemetry-service
+
+|Flag|Short|Environment|Default|Type|
+|----|-----|-----------|-------|----|
+|--instrumentation-key||INSTRUMENTATION_KEY||String|
+|--application-insights-service-name||APPLICATION_INSIGHTS_SERVICE_NAME|Kelon|String|
+|--application-insights-max-batch-size||APPLICATION_INSIGHTS_MAX_BATCH_SIZE|8192|Number|
+|--application-insights-max-batch-interval-seconds||APPLICATION_INSIGHTS_MAX_BATCH_INTERVAL_SECONDS|2|Number|
+|--application-insights-log-levels||APPLICATION_INSIGHTS_LOG_LEVELS|fatal,panic,error,warn|Enum-List|
+|--application-insights-stats-interval-seconds||APPLICATION_INSIGHTS_STATS_INTERVAL_SECONDS|5|Number|
 
 ## datastore.yml
 
@@ -95,6 +148,30 @@ datastores:
       # Connection options for the database connection
       # To get all available options for your database, see section "Connection options" below
       [<option>: <string>]
+
+    # Metadata attached to the datastore
+    metadata:
+
+      # Only used from SQL-Datastores
+      # Sets max idle connections of the database connection pool
+      
+      [maxIdleConnections: <int>]
+
+      # Only used from SQL-Datastores
+      # Sets max open connections of the database connection pool
+      [maxOpenConnections: <int>]
+
+      # Only used from SQL-Datastores
+      # Sets max lifetime of each connection inside the database connection pool
+      [connectionMaxLifetimeSeconds: <int>]
+
+      # Only used if ApplicationInsights is set as Telemetry-Service!
+      # Sets the name of the Dependency which is traced for this datastore
+      [telemetryName: <string>]
+
+      # Only used if ApplicationInsights is set as Telemetry-Service!
+      # Sets the type of the Dependency which is traced for this datastore
+      [telemetryType: <string>]
 
 
 # Entity-Schemas define the entities of one schema inside a datastore.
