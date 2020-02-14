@@ -39,6 +39,7 @@ pages:
       - "Query-AST": "core/architecture/Query-AST.md"
     - "Integrating Kelon":
       - "Services and Kelon": "core/integration/Services-And-Kelon.md"
+      - "Kelon and Envoy": "core/integration/Kelon-Envoy.md"
       - "Kelon and Gloo": "core/integration/Kelon-Gloo.md"
       - "Kelon and Istio": "core/integration/Kelon-Istio.md"
     - "Extending Kelon":
