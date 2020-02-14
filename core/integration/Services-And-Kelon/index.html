@@ -475,9 +475,70 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#middleware-interceptors" class="md-nav__link">
-    Middleware-Interceptors
+  <a href="#writing-your-own-request-interceptor" class="md-nav__link">
+    Writing your own request interceptor
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commuicate-via-content" class="md-nav__link">
+    Commuicate via Content
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commuicate-via-status-code" class="md-nav__link">
+    Commuicate via Status Code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#already-existing-interceptors-for-frameworks" class="md-nav__link">
+    Already existing interceptors for frameworks
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spring-boot" class="md-nav__link">
+    Spring Boot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dart" class="md-nav__link">
+    Dart
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#golang" class="md-nav__link">
+    Golang
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    Python
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -691,9 +752,70 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#middleware-interceptors" class="md-nav__link">
-    Middleware-Interceptors
+  <a href="#writing-your-own-request-interceptor" class="md-nav__link">
+    Writing your own request interceptor
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commuicate-via-content" class="md-nav__link">
+    Commuicate via Content
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commuicate-via-status-code" class="md-nav__link">
+    Commuicate via Status Code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#already-existing-interceptors-for-frameworks" class="md-nav__link">
+    Already existing interceptors for frameworks
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spring-boot" class="md-nav__link">
+    Spring Boot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dart" class="md-nav__link">
+    Dart
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#golang" class="md-nav__link">
+    Golang
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    Python
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -726,19 +848,40 @@
 <p><a href="/core/integration/Kelon-Envoy">Hook Kelon into a Proxy like Envoy</a> which takes all incoming traffic, authorizes it agains Kelon and then forwards it to your service</p>
 </li>
 </ol>
-<h2 id="middleware-interceptors">Middleware-Interceptors</h2>
+<h2 id="writing-your-own-request-interceptor">Writing your own request interceptor</h2>
 <p>The core thing that each interceptor for Kelon needs to do is to gather all information about the incoming request and send it via a HTTP-POST to kelon for authorization (no mather which framework or programming language you want to use)</p>
 <p>A possible call to Kelon for an incoming <code>GET /api/apps/1</code> might look like this:</p>
 <p><strong>POST http://{Path to kelon}:{Port of kelon}/v1/data/allow</strong>
-<div class="highlight"><pre><span></span><code>{
-    &quot;input&quot;: {
-        &quot;method&quot;: &quot;GET&quot;,
-        &quot;path&quot;: &quot;/api/apps/1&quot;,
-        &quot;token&quot;: &quot;&lt;JWT-Token from request header&gt;&quot;
-    }
-}
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;input&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;GET&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/api/apps/1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;JWT-Token from request header&gt;&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div></p>
 <p>Please note that the only <strong>required fields</strong> inside the input object are <strong>method</strong> and <strong>path</strong>! All other fields can be added as you like and are available inside your policies by accessing them with i.e. <code>data.input.token</code>.</p>
+<p>Kelon's response to this requests can be one of following:</p>
+<h3 id="commuicate-via-content">Commuicate via Content</h3>
+<p>Without any addidional flag Kelon sends a response with code 201 and a JSON body with following format:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;Result&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="err">/</span><span class="kc">false</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>In case of any malformed input or a missing mapping for the sent path, Kelon responds with a status code other than 201.</p>
+<h3 id="commuicate-via-status-code">Commuicate via Status Code</h3>
+<p>When you configure Kelon with the flag <code>--respond-with-status-code</code> it sends communicates the final decision via status codes (201/503 / Allow/Forbidden).</p>
+<h2 id="already-existing-interceptors-for-frameworks">Already existing interceptors for frameworks</h2>
+<p>Due to the fact that Kelon is compatible with OPA's Data-API, every solution written for the Open Policy Agent also works for kelon. There fore it is always advisable to have a look at the official <a href="https://github.com/open-policy-agent/contrib">OPA-contrib repository</a> first. Please note that you may have to change the data format which is used to post the data to Kelon!</p>
+<h3 id="spring-boot">Spring Boot</h3>
+<p>You can find an already existing implementation of an AccessDecisionVoter which can easily be integrated into existing Spring applicaitons <a href="https://github.com/open-policy-agent/contrib/tree/master/spring_authz">here</a>. Please note that you may have to change the data format which is used to post the data to Kelon!</p>
+<h3 id="dart">Dart</h3>
+<p>There is also an implementation for <a href="https://github.com/open-policy-agent/contrib/tree/master/dart_authz">Dart applications</a>. Please note that you may have to change the data format which is used to post the data to Kelon!</p>
+<h3 id="golang">Golang</h3>
+<p>An example with golang is avaliable <a href="https://github.com/open-policy-agent/example-api-authz-go">here</a>. Please note that you may have to change the data format which is used to post the data to Kelon!</p>
+<h3 id="python">Python</h3>
+<p>An example with python can be found <a href="https://github.com/open-policy-agent/example-api-authz-python">here</a>. Please note that you may have to change the data format which is used to post the data to Kelon!</p>
                 
                   
                 
