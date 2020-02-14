@@ -1,0 +1,1108 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Kelon and Envoy - Kelon Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.adb8469c.css">
+      
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#minimal-setup" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../.." title="Kelon Docs" aria-label="Kelon Docs" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Kelon Docs
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Kelon and Envoy
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/foundato/kelon/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    foundato/kelon
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../.." title="Kelon Docs" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Kelon Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/foundato/kelon/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    foundato/kelon
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+    
+    <label class="md-nav__link" for="nav-1">
+      Core Docs
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Core Docs
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-2" type="checkbox" id="nav-1-2">
+    
+    <label class="md-nav__link" for="nav-1-2">
+      Overview
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-2">
+        Overview
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../overview/Simple-Example/" title="Example" class="md-nav__link">
+      Example
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../overview/example/Create-Policies/" title="Create Policies" class="md-nav__link">
+      Create Policies
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../overview/example/Configure-Kelon/" title="Configure Kelon" class="md-nav__link">
+      Configure Kelon
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../overview/example/Run-Example/" title="Run the example" class="md-nav__link">
+      Run the example
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-3" type="checkbox" id="nav-1-3">
+    
+    <label class="md-nav__link" for="nav-1-3">
+      Philosophy
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-3">
+        Philosophy
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../philosophy/Why-External-Policy-Enforcement/" title="Why external Policy Enforcement" class="md-nav__link">
+      Why external Policy Enforcement
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../philosophy/What-Is-A-Policy/" title="What is a Policy" class="md-nav__link">
+      What is a Policy
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-4" type="checkbox" id="nav-1-4">
+    
+    <label class="md-nav__link" for="nav-1-4">
+      Architecture
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-4">
+        Architecture
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../architecture/Components/" title="Components" class="md-nav__link">
+      Components
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../architecture/Policy-Translation/" title="Policy Translation" class="md-nav__link">
+      Policy Translation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../architecture/Query-AST/" title="Query-AST" class="md-nav__link">
+      Query-AST
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-5" type="checkbox" id="nav-1-5" checked>
+    
+    <label class="md-nav__link" for="nav-1-5">
+      Integrating Kelon
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-5">
+        Integrating Kelon
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Services-And-Kelon/" title="Services and Kelon" class="md-nav__link">
+      Services and Kelon
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Kelon and Envoy
+      </label>
+    
+    <a href="./" title="Kelon and Envoy" class="md-nav__link md-nav__link--active">
+      Kelon and Envoy
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#minimal-setup" class="md-nav__link">
+    Minimal setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cors" class="md-nav__link">
+    CORS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication-auth0-jwks" class="md-nav__link">
+    Authentication (Auth0 &amp; JWKS)
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Kelon-Gloo/" title="Kelon and Gloo" class="md-nav__link">
+      Kelon and Gloo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Kelon-Istio/" title="Kelon and Istio" class="md-nav__link">
+      Kelon and Istio
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-6" type="checkbox" id="nav-1-6">
+    
+    <label class="md-nav__link" for="nav-1-6">
+      Extending Kelon
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-6">
+        Extending Kelon
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../extend/Write-Plugins/" title="Writing plugins" class="md-nav__link">
+      Writing plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../extend/Write-Datastore-Plugin/" title="Write a datasource plugin" class="md-nav__link">
+      Write a datasource plugin
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Operations
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Operations
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../operations/APIs/" title="APIs" class="md-nav__link">
+      APIs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../operations/Configuration/" title="Configuration" class="md-nav__link">
+      Configuration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../operations/Deployment/" title="Deployment" class="md-nav__link">
+      Deployment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../operations/Monitoring/" title="Monitoring" class="md-nav__link">
+      Monitoring
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../operations/Security/" title="Security" class="md-nav__link">
+      Security
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#minimal-setup" class="md-nav__link">
+    Minimal setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cors" class="md-nav__link">
+    CORS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication-auth0-jwks" class="md-nav__link">
+    Authentication (Auth0 &amp; JWKS)
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/foundato/kelon/edit/master/docs/core/integration/Kelon-Envoy.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Kelon and Envoy</h1>
+                
+                <p>Kelon implements Envoy's <a href="https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_filters/ext_authz_filter#config-http-filters-ext-authz">External Authorization API</a> which makes it quite easy to integrate it with Envoy. This setup becomes quite handy if you want to keep all your currently deployed services untouched and deploy Kelon together with Envoy as central gateway which authorizes the entire traffic coming in your cluster.</p>
+<p><strong>The complete deployment of Kelon and Envoy as Gateway for our Appstore-Example inside Kubernetes is also available <a href="https://github.com/Foundato/kelon-examples/tree/master/appstore-envoy-kelon-kube-mgmt-example">here</a></strong></p>
+<h2 id="minimal-setup">Minimal setup</h2>
+<p>To enable the Kelon's GRPC-Encpoint which is used by Envoy to authorize all request you just have to set the flag <code>--envoy-port</code> to a valid port and that's it.</p>
+<p>The minimal config to setup Envoy with is following:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">admin</span><span class="p">:</span>
+  <span class="nt">access_log_path</span><span class="p">:</span> <span class="s">&quot;/dev/null&quot;</span>
+  <span class="nt">address</span><span class="p">:</span>
+    <span class="c1"># Address and Port for envoy&#39;s admin interface</span>
+    <span class="nt">socket_address</span><span class="p">:</span>
+      <span class="nt">address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.0.0.0</span>
+      <span class="nt">port_value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8001</span>
+<span class="nt">static_resources</span><span class="p">:</span>
+  <span class="nt">listeners</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">address</span><span class="p">:</span>
+        <span class="c1"># Address and Port Envoy is listening on</span>
+        <span class="nt">socket_address</span><span class="p">:</span>
+          <span class="nt">address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.0.0.0</span>
+          <span class="nt">port_value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8000</span>
+      <span class="nt">filter_chains</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">filters</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">envoy.http_connection_manager</span>
+              <span class="nt">typed_config</span><span class="p">:</span>
+                <span class="s">&quot;@type&quot;</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">type.googleapis.com/envoy.config.filter.network.http_connection_manager.v2.HttpConnectionManager</span>
+                <span class="nt">codec_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">auto</span>
+                <span class="nt">stat_prefix</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ingress_http</span>
+                <span class="nt">route_config</span><span class="p">:</span>
+                  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local_route</span>
+                  <span class="c1"># Forward all incoming traffic to your service after all filters have passed</span>
+                  <span class="nt">virtual_hosts</span><span class="p">:</span>
+                    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">backend</span>
+                      <span class="nt">domains</span><span class="p">:</span>
+                        <span class="p p-Indicator">-</span> <span class="s">&quot;*&quot;</span>
+                      <span class="nt">routes</span><span class="p">:</span>
+                        <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span>
+                            <span class="nt">prefix</span><span class="p">:</span> <span class="s">&quot;/&quot;</span>
+                          <span class="nt">route</span><span class="p">:</span>
+                            <span class="nt">cluster</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">service</span>
+                <span class="c1"># Entire filter chain which has to pass before </span>
+                <span class="c1"># Envoy sends requests to your service</span>
+                <span class="nt">http_filters</span><span class="p">:</span>
+                  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">envoy.ext_authz</span>
+                    <span class="nt">config</span><span class="p">:</span>
+                      <span class="nt">with_request_body</span><span class="p">:</span>
+                        <span class="nt">max_request_bytes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8192</span>
+                        <span class="nt">allow_partial_message</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+                      <span class="nt">failure_mode_allow</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+                      <span class="nt">grpc_service</span><span class="p">:</span>
+                        <span class="nt">google_grpc</span><span class="p">:</span>
+                          <span class="nt">target_uri</span><span class="p">:</span> <span class="s">&quot;&lt;uri</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">kelon&gt;:&lt;port</span><span class="nv"> </span><span class="s">under</span><span class="nv"> </span><span class="s">which</span><span class="nv"> </span><span class="s">kelon</span><span class="nv"> </span><span class="s">waits</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">envoy</span><span class="nv"> </span><span class="s">requests&gt;&quot;</span>
+                          <span class="nt">stat_prefix</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ext_authz</span>
+                        <span class="nt">timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.5s</span>
+                  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">envoy.router</span>
+                    <span class="nt">typed_config</span><span class="p">:</span> <span class="p p-Indicator">{}</span>
+<span class="nt">clusters</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">service</span>
+    <span class="nt">connect_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.25s</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">strict_dns</span>
+    <span class="nt">lb_policy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">round_robin</span>
+    <span class="nt">load_assignment</span><span class="p">:</span>
+      <span class="nt">cluster_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">service</span>
+      <span class="nt">endpoints</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">lb_endpoints</span><span class="p">:</span>
+          <span class="p p-Indicator">-</span> <span class="nt">endpoint</span><span class="p">:</span>
+              <span class="nt">address</span><span class="p">:</span>
+                <span class="c1"># Your deployed service which you want to protect</span>
+                <span class="nt">socket_address</span><span class="p">:</span>
+                  <span class="nt">address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;uri to your deployed service&gt;</span>
+                  <span class="nt">port_value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;port of your service&gt;</span>
+</code></pre></div>
+
+<h2 id="cors">CORS</h2>
+<p>While this is a working setup of Envoy and Kelon, we also recommend to add at least Envoy's <a href="https://www.envoyproxy.io/docs/envoy/latest/start/sandboxes/cors.html">CORS-Filter</a> in front of ext_auth to correctly terminate all CORS-Headers of inconming traffic. Following Config of envoy shows how to include Envoy's CORS-Filter:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">admin</span><span class="p">:</span>
+  <span class="nt">access_log_path</span><span class="p">:</span> <span class="s">&quot;/dev/null&quot;</span>
+  <span class="nt">address</span><span class="p">:</span>
+    <span class="nt">socket_address</span><span class="p">:</span>
+      <span class="nt">address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.0.0.0</span>
+      <span class="nt">port_value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8001</span>
+<span class="nt">static_resources</span><span class="p">:</span>
+  <span class="nt">listeners</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">address</span><span class="p">:</span>
+        <span class="nt">socket_address</span><span class="p">:</span>
+          <span class="nt">address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.0.0.0</span>
+          <span class="nt">port_value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8000</span>
+      <span class="nt">filter_chains</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">filters</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">envoy.http_connection_manager</span>
+              <span class="nt">typed_config</span><span class="p">:</span>
+                <span class="s">&quot;@type&quot;</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">type.googleapis.com/envoy.config.filter.network.http_connection_manager.v2.HttpConnectionManager</span>
+                <span class="nt">codec_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">auto</span>
+                <span class="nt">stat_prefix</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ingress_http</span>
+                <span class="nt">route_config</span><span class="p">:</span>
+                  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local_route</span>
+                  <span class="nt">virtual_hosts</span><span class="p">:</span>
+                    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">backend</span>
+                      <span class="nt">domains</span><span class="p">:</span>
+                        <span class="p p-Indicator">-</span> <span class="s">&quot;*&quot;</span>
+                      <span class="c1"># =======================================</span>
+                      <span class="c1"># Configure CORS-Filter for each service</span>
+                      <span class="nt">cors</span><span class="p">:</span>
+                        <span class="nt">allow_origin_string_match</span><span class="p">:</span>
+                          <span class="p p-Indicator">-</span> <span class="nt">safe_regex</span><span class="p">:</span>
+                              <span class="nt">google_re2</span><span class="p">:</span> <span class="p p-Indicator">{}</span>
+                              <span class="nt">regex</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\*</span>
+                        <span class="nt">allow_methods</span><span class="p">:</span> <span class="s">&quot;*&quot;</span>
+                        <span class="nt">allow_headers</span><span class="p">:</span> <span class="s">&quot;*&quot;</span>
+                        <span class="nt">filter_enabled</span><span class="p">:</span>
+                          <span class="nt">default_value</span><span class="p">:</span>
+                            <span class="nt">numerator</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+                            <span class="nt">denominator</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HUNDRED</span>
+                          <span class="nt">runtime_key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cors.www.enabled</span>
+                        <span class="nt">shadow_enabled</span><span class="p">:</span>
+                          <span class="nt">default_value</span><span class="p">:</span>
+                            <span class="nt">numerator</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+                            <span class="nt">denominator</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HUNDRED</span>
+                          <span class="nt">runtime_key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cors.www.shadow_enabled</span>
+                      <span class="nt">routes</span><span class="p">:</span>
+                        <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span>
+                            <span class="nt">prefix</span><span class="p">:</span> <span class="s">&quot;/&quot;</span>
+                          <span class="nt">route</span><span class="p">:</span>
+                            <span class="nt">cluster</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">service</span>
+                      <span class="c1"># =======================================</span>
+                <span class="nt">http_filters</span><span class="p">:</span>
+                  <span class="c1"># =======================================</span>
+                  <span class="c1"># Add CORS filter before Kelon inside the filter chain</span>
+                  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">envoy.cors</span>
+                    <span class="nt">typed_config</span><span class="p">:</span> <span class="p p-Indicator">{}</span>
+                  <span class="c1"># =======================================</span>
+                  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">envoy.ext_authz</span>
+                    <span class="nt">config</span><span class="p">:</span>
+                      <span class="nt">with_request_body</span><span class="p">:</span>
+                        <span class="nt">max_request_bytes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8192</span>
+                        <span class="nt">allow_partial_message</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+                      <span class="nt">failure_mode_allow</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+                      <span class="nt">grpc_service</span><span class="p">:</span>
+                        <span class="nt">google_grpc</span><span class="p">:</span>
+                          <span class="nt">target_uri</span><span class="p">:</span> <span class="s">&quot;&lt;uri</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">kelon&gt;:&lt;port</span><span class="nv"> </span><span class="s">under</span><span class="nv"> </span><span class="s">which</span><span class="nv"> </span><span class="s">kelon</span><span class="nv"> </span><span class="s">waits</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">envoy</span><span class="nv"> </span><span class="s">requests&gt;&quot;</span>
+                          <span class="nt">stat_prefix</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ext_authz</span>
+                        <span class="nt">timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.5s</span>
+                  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">envoy.router</span>
+                    <span class="nt">typed_config</span><span class="p">:</span> <span class="p p-Indicator">{}</span>
+<span class="nt">clusters</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">service</span>
+    <span class="nt">connect_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.25s</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">strict_dns</span>
+    <span class="nt">lb_policy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">round_robin</span>
+    <span class="nt">load_assignment</span><span class="p">:</span>
+      <span class="nt">cluster_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">service</span>
+      <span class="nt">endpoints</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">lb_endpoints</span><span class="p">:</span>
+          <span class="p p-Indicator">-</span> <span class="nt">endpoint</span><span class="p">:</span>
+              <span class="nt">address</span><span class="p">:</span>
+                <span class="nt">socket_address</span><span class="p">:</span>
+                  <span class="nt">address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;uri to your deployed service&gt;</span>
+                  <span class="nt">port_value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;port of your service&gt;</span>
+</code></pre></div>
+
+<h2 id="authentication-auth0-jwks">Authentication (Auth0 &amp; JWKS)</h2>
+<p>If you want to keep <code>Authorization</code> as well as <code>Authentication</code> completely away from your services, you can also add Envoy's <a href="https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/security/jwt_authn_filter">JWT-Auth-Filter</a> to your filter chain. With this setup all of your services can completely focus on their main task... and this is business-logic and not authenticating or authorizing it!</p>
+<p>Following Config of envoy shows how to include Envoy's JWT-Auth-Filter:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">admin</span><span class="p">:</span>
+  <span class="nt">access_log_path</span><span class="p">:</span> <span class="s">&quot;/dev/null&quot;</span>
+  <span class="nt">address</span><span class="p">:</span>
+    <span class="nt">socket_address</span><span class="p">:</span>
+      <span class="nt">address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.0.0.0</span>
+      <span class="nt">port_value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8001</span>
+<span class="nt">static_resources</span><span class="p">:</span>
+  <span class="nt">listeners</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">address</span><span class="p">:</span>
+        <span class="nt">socket_address</span><span class="p">:</span>
+          <span class="nt">address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.0.0.0</span>
+          <span class="nt">port_value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8000</span>
+      <span class="nt">filter_chains</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">filters</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">envoy.http_connection_manager</span>
+              <span class="nt">typed_config</span><span class="p">:</span>
+                <span class="s">&quot;@type&quot;</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">type.googleapis.com/envoy.config.filter.network.http_connection_manager.v2.HttpConnectionManager</span>
+                <span class="nt">codec_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">auto</span>
+                <span class="nt">stat_prefix</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ingress_http</span>
+                <span class="nt">route_config</span><span class="p">:</span>
+                  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local_route</span>
+                  <span class="nt">virtual_hosts</span><span class="p">:</span>
+                    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">backend</span>
+                      <span class="nt">domains</span><span class="p">:</span>
+                        <span class="p p-Indicator">-</span> <span class="s">&quot;*&quot;</span>
+                      <span class="nt">cors</span><span class="p">:</span>
+                        <span class="nt">allow_origin_string_match</span><span class="p">:</span>
+                          <span class="p p-Indicator">-</span> <span class="nt">safe_regex</span><span class="p">:</span>
+                              <span class="nt">google_re2</span><span class="p">:</span> <span class="p p-Indicator">{}</span>
+                              <span class="nt">regex</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\*</span>
+                        <span class="nt">allow_methods</span><span class="p">:</span> <span class="s">&quot;*&quot;</span>
+                        <span class="nt">allow_headers</span><span class="p">:</span> <span class="s">&quot;*&quot;</span>
+                        <span class="nt">filter_enabled</span><span class="p">:</span>
+                          <span class="nt">default_value</span><span class="p">:</span>
+                            <span class="nt">numerator</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+                            <span class="nt">denominator</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HUNDRED</span>
+                          <span class="nt">runtime_key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cors.www.enabled</span>
+                        <span class="nt">shadow_enabled</span><span class="p">:</span>
+                          <span class="nt">default_value</span><span class="p">:</span>
+                            <span class="nt">numerator</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+                            <span class="nt">denominator</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HUNDRED</span>
+                          <span class="nt">runtime_key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cors.www.shadow_enabled</span>
+                      <span class="nt">routes</span><span class="p">:</span>
+                        <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span>
+                            <span class="nt">prefix</span><span class="p">:</span> <span class="s">&quot;/&quot;</span>
+                          <span class="nt">route</span><span class="p">:</span>
+                            <span class="nt">cluster</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">service</span>
+                <span class="nt">http_filters</span><span class="p">:</span>
+                  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">envoy.cors</span>
+                    <span class="nt">typed_config</span><span class="p">:</span> <span class="p p-Indicator">{}</span>
+                  <span class="c1"># =======================================</span>
+                  <span class="c1"># Add and configure JWT-Auth-Filter</span>
+                  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">envoy.filters.http.jwt_authn</span>
+                    <span class="nt">config</span><span class="p">:</span>
+                      <span class="nt">providers</span><span class="p">:</span>
+                        <span class="nt">provider1</span><span class="p">:</span>
+                          <span class="nt">issuer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;issuer of your tokens. i.e. https://dev-kelon.eu.auth0.com/&gt;</span>
+                          <span class="nt">remote_jwks</span><span class="p">:</span>
+                            <span class="nt">http_uri</span><span class="p">:</span>
+                              <span class="nt">uri</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;uri where to fetch public keys from. i.e. https://dev-kelon.eu.auth0.com/.well-known/jwks.json&gt;</span>
+                              <span class="nt">cluster</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">auth0</span>
+                              <span class="nt">timeout</span><span class="p">:</span>
+                                <span class="nt">seconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
+                      <span class="nt">rules</span><span class="p">:</span>
+                        <span class="c1"># Completely ignore health checks for authentication</span>
+                        <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span>
+                            <span class="nt">prefix</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/health</span>
+                        <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span>
+                        <span class="c1"># Completely ignore login for authentication</span>
+                            <span class="nt">prefix</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/api/login</span>
+                        <span class="c1"># Authenticate all requests against /api/apps</span>
+                        <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span>
+                            <span class="nt">prefix</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/api/apps</span>
+                          <span class="nt">requires</span><span class="p">:</span>
+                            <span class="nt">provider_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">provider1</span>
+                  <span class="c1"># =======================================</span>
+                  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">envoy.ext_authz</span>
+                    <span class="nt">config</span><span class="p">:</span>
+                      <span class="nt">with_request_body</span><span class="p">:</span>
+                        <span class="nt">max_request_bytes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8192</span>
+                        <span class="nt">allow_partial_message</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+                      <span class="nt">failure_mode_allow</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+                      <span class="nt">grpc_service</span><span class="p">:</span>
+                        <span class="nt">google_grpc</span><span class="p">:</span>
+                          <span class="nt">target_uri</span><span class="p">:</span> <span class="s">&quot;&lt;uri</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">kelon&gt;:&lt;port</span><span class="nv"> </span><span class="s">under</span><span class="nv"> </span><span class="s">which</span><span class="nv"> </span><span class="s">kelon</span><span class="nv"> </span><span class="s">waits</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">envoy</span><span class="nv"> </span><span class="s">requests&gt;&quot;</span>
+                          <span class="nt">stat_prefix</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ext_authz</span>
+                        <span class="nt">timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.5s</span>
+                  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">envoy.router</span>
+                    <span class="nt">typed_config</span><span class="p">:</span> <span class="p p-Indicator">{}</span>
+<span class="nt">clusters</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">service</span>
+    <span class="nt">connect_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.25s</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">strict_dns</span>
+    <span class="nt">lb_policy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">round_robin</span>
+    <span class="nt">load_assignment</span><span class="p">:</span>
+      <span class="nt">cluster_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">service</span>
+      <span class="nt">endpoints</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">lb_endpoints</span><span class="p">:</span>
+          <span class="p p-Indicator">-</span> <span class="nt">endpoint</span><span class="p">:</span>
+              <span class="nt">address</span><span class="p">:</span>
+                <span class="nt">socket_address</span><span class="p">:</span>
+                  <span class="nt">address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;uri to your deployed service&gt;</span>
+                  <span class="nt">port_value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;port of your service&gt;</span>
+  <span class="c1"># =======================================</span>
+  <span class="c1"># You also have to specify a cluster which describes the authentication endpoint</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">auth0</span>
+    <span class="nt">connect_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.25s</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">strict_dns</span>
+    <span class="nt">lb_policy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">round_robin</span>
+    <span class="nt">load_assignment</span><span class="p">:</span>
+      <span class="nt">cluster_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">auth0</span>
+      <span class="nt">endpoints</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">lb_endpoints</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="nt">endpoint</span><span class="p">:</span>
+                <span class="nt">address</span><span class="p">:</span>
+                  <span class="nt">socket_address</span><span class="p">:</span>
+                    <span class="nt">address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;uri to your auth provider. i.e. dev-kelon.eu.auth0.com&gt;</span>
+                    <span class="nt">port_value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">443</span>
+    <span class="nt">transport_socket</span><span class="p">:</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">envoy.transport_sockets.tls</span>
+      <span class="nt">typed_config</span><span class="p">:</span>
+        <span class="s">&quot;@type&quot;</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">type.googleapis.com/envoy.api.v2.auth.UpstreamTlsContext</span>
+        <span class="nt">common_tls_context</span><span class="p">:</span>
+          <span class="nt">validation_context</span><span class="p">:</span>
+            <span class="nt">trusted_ca</span><span class="p">:</span>
+              <span class="nt">filename</span><span class="p">:</span> <span class="s">&quot;/etc/ssl/certs/ca-certificates.crt&quot;</span>
+        <span class="nt">sni</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;server name indication of your auth provider. i.e. dev-kelon.eu.auth0.com&gt;</span>
+</code></pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../Services-And-Kelon/" title="Services and Kelon" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Services and Kelon
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../Kelon-Gloo/" title="Kelon and Gloo" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Kelon and Gloo
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+    
+  </body>
+</html>
