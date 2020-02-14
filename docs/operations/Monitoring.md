@@ -2,8 +2,8 @@
 
 To keep you always in track of Kelon's current state, request/response statistics and many more performance metrics, Kelon provides two telemetry provider out of the box:
 
-- [Prometheus]()
-- [Application Insights]() by Microsoft
+- [Prometheus](https://prometheus.io/)
+- [Application Insights](https://docs.microsoft.com/de-de/azure/azure-monitor/app/app-insights-overview) by Microsoft
 
 One of them can be selected per running Kelon instance via the `telemetry-service`-flag. There are also more configuration options for each telemetry provider which you can finde in the [Configuration](/operations/Configuration#telemetry) section.
 
