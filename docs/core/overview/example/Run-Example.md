@@ -22,6 +22,7 @@ $ go build -o ./kelon ./cmd/kelon
 
 ```bash
 $ docker pull kelonio/kelon
+$ docker run kelonio/kelon --help
 ```
 
 ## Start the environment
