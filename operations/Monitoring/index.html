@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.2">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.3">
     
     
       
@@ -658,6 +658,50 @@
                 
                 
                 <h1 id="monitoring">Monitoring</h1>
+<p>To keep you always in track of Kelon's current state, request/response statistics and many more performance metrics, Kelon provides two telemetry provider out of the box:</p>
+<ul>
+<li><a href="">Prometheus</a></li>
+<li><a href="">Application Insights</a> by Microsoft</li>
+</ul>
+<p>One of them can be selected per running Kelon instance via the <code>telemetry-service</code>-flag. There are also more configuration options for each telemetry provider which you can finde in the <a href="/operations/Configuration#telemetry">Configuration</a> section.</p>
+<h1 id="stats-per-telemetry-provider">Stats per telemetry provider</h1>
+<h2 id="prometheus">Prometheus</h2>
+<p>After enabling Prometheus as telemetry provider, Kelon exposes all collected metrics over the HTTP-Endpoint <code>GET http://&lt;host&gt;:&lt;port&gt;/metrics</code></p>
+<p>Following metrics are currently provided for Prometheus</p>
+<ul>
+<li>Full system and Golang stats</li>
+<li>Full request stats</li>
+<li>HTTP</li>
+<li>GRPC (Proxied over HTTP internally)</li>
+<li>Database requests</li>
+<li>Errors (Currently only counter)</li>
+</ul>
+<h2 id="application-insights">Application Insights</h2>
+<p>Application Insights has a push based model which is why there is no /metrics endpoint exposed when selecting Application Insights as telemetry provider. Instead you have to provide at least the <code>instrumentation key</code> from your previously created Application Insights Application from Azure-Portal. Afterwards Kelon pushes all available metrics into the Azure-Cloud on its own.</p>
+<p>Following metrics are currently provided for Application Insights</p>
+<ul>
+<li>Basic system stats<ul>
+<li>% Processor Time</li>
+<li>Heap Memory Used</li>
+<li>% Heap Memory Used</li>
+<li>IO Data Bytes/sec</li>
+<li>Data In-Bytes/sec</li>
+<li>Data Out-Bytes/sec</li>
+</ul>
+</li>
+<li>Full request stats<ul>
+<li>HTTP</li>
+<li>GRPC (Proxied over HTTP internally)</li>
+</ul>
+</li>
+<li>Database request (including queries)<ul>
+<li>Dependency-Name/Type displayed in Azure's application overview can be configured via the datastore.yml <a href="/operations/Configuration#datastoreyml">here</a></li>
+</ul>
+</li>
+<li>Errors (Including cause)</li>
+<li>End-to-End-tracking of all requests going into Kelon</li>
+<li>Entire log (Log levels can be configured <a href="/operations/Configuration/#application-insights">here</a>)</li>
+</ul>
                 
                   
                 
