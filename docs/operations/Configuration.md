@@ -21,6 +21,8 @@ Flags:
   -p, --port=8181              Port on which the proxy endpoint is served.
       --preprocess-policies    Preprocess incoming policies for internal use-case (EXPERIMENTAL FEATURE! DO NOT USE!).
       --log-level=INFO         Log-Level for Kelon. Must be one of [DEBUG, INFO, WARN, ERROR]
+      --access-decision-log-level=ALL
+                               Configuration for logging access decisions while Info-Log-Level for Kelon. Must be one of [ALL, ALLOW, DENY, NONE]
       --respond-with-status-code  
                                Communicate Decision via status code 200 (ALLOW) or 403 (DENY).
       --envoy-port=ENVOY-PORT  Also start Envoy GRPC-Proxy on specified port so integrate kelon with Istio.
