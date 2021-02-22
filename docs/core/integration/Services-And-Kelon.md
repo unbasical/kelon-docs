@@ -1,10 +1,6 @@
 # Kelon and services
 
-To integrate Kelon with your service you basically have two options
-
-1. Add middleware-code to your service which intercepts calls and sends them to Kelon for authorization
-
-2. [Hook Kelon into a Proxy like Envoy](/core/integration/Kelon-Envoy) which takes all incoming traffic, authorizes it agains Kelon and then forwards it to your service
+To integrate Kelon with your service you basically have to add middleware-code to your service which intercepts calls and sends them to Kelon for authorization
 
 ## Writing your own request interceptor
 
