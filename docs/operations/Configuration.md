@@ -21,32 +21,12 @@ Flags:
   -p, --port=8181              Port on which the proxy endpoint is served.
       --preprocess-policies    Preprocess incoming policies for internal use-case (EXPERIMENTAL FEATURE! DO NOT USE!).
       --log-level=INFO         Log-Level for Kelon. Must be one of [DEBUG, INFO, WARN, ERROR]
+      --access-decision-log-level=ALL
+                               Configuration for logging access decisions while Info-Log-Level for Kelon. Must be one of [ALL, ALLOW, DENY, NONE]
       --respond-with-status-code  
                                Communicate Decision via status code 200 (ALLOW) or 403 (DENY).
-      --envoy-port=ENVOY-PORT  Also start Envoy GRPC-Proxy on specified port so integrate kelon with Istio.
-      --envoy-dry-run          Enable/Disable the dry run feature of the envoy-proxy.
-      --envoy-reflection       Enable/Disable the reflection feature of the envoy-proxy.
-      --istio-port=ISTIO-PORT  Also start Istio Mixer Out of Tree Adapter on specified port so integrate kelon with Istio.
-      --istio-credential-file=ISTIO-CREDENTIAL-FILE  
-                               Filepath containing istio credentials for mTLS (i.e. adapter.crt).
-      --istio-private-key-file=ISTIO-PRIVATE-KEY-FILE  
-                               Filepath containing istio private key for mTLS (i.e. adapter.key).
-      --istio-certificate-file=ISTIO-CERTIFICATE-FILE  
-                               Filepath containing istio certificate for mTLS (i.e. ca.pem).
       --telemetry-service=TELEMETRY-SERVICE  
-                               Service that is used for telemetry [Prometheus, ApplicationInsights]
-      --instrumentation-key=INSTRUMENTATION-KEY  
-                               The ApplicationInsights-InstrumentationKey that is used to connect to the API.
-      --application-insights-service-name="Kelon"  
-                               The name which will be displayed for kelon inside application insights.
-      --application-insights-max-batch-size=8192  
-                               Configure how many items can be sent in one call to the data collector.
-      --application-insights-max-batch-interval-seconds=2  
-                               Configure the maximum delay before sending queued telemetry.
-      --application-insights-log-levels="fatal,panic,error,warn"  
-                               Configure log levels which are sent. Allowed values are [fatal, panic, error, warn, info, debug, trace]
-      --application-insights-stats-interval-seconds=5  
-                               Interval in seconds in which system stats are measured and sent.
+                               Service that is used for telemetry [Prometheus]
       --version                Show application version.
 
 Commands:
@@ -73,41 +53,13 @@ In addition to that Kelon provides the possibility to be configured via environm
 |--port|-p|PORT|8181|Number|
 |--preprocess-policies||PREPROCESS_POLICIES|false|Boolean|
 |--respond-with-status-code||RESPOND_WITH_STATUS_CODE|false|Boolean|
-
-### Envoy
-
-|Flag|Short|Environment|Default|Type|
-|----|-----|-----------|-------|----|
-|--envoy-port||ENVOY_PORT||Number|
-|--envoy-dry-run||ENVOY_DRY_RUN|false|Boolean|
-|--envoy-reflection||ENVOY_REFLECTION|false|Boolean|
-
-### Istio
-
-|Flag|Short|Environment|Default|Type|
-|----|-----|-----------|-------|----|
-|--istio-port||ISTIO_PORT||Number|
-|--istio-credential-file||ISTIO_CREDENTIAL_FILE||Existing File|
-|--istio-private-key-file||ISTIO_PRIVATE_KEY_FILE||Existing File|
-|--istio-certificate-file||ISTIO_CERTIFICATE_FILE||Existing File|
+|--access-decision-log-level||ACCESS_DECISION_LOG_LEVEL|ALL|Enum|
 
 ### Telemetry
 
 |Flag|Short|Environment|Default|Type|
 |----|-----|-----------|-------|----|
 |--telemetry-service||TELEMETRY_SERVICE||Enum|
-
-#### Application Insights
-When you have set `ApplicationInsights` as --telemetry-service
-
-|Flag|Short|Environment|Default|Type|
-|----|-----|-----------|-------|----|
-|--instrumentation-key||INSTRUMENTATION_KEY||String|
-|--application-insights-service-name||APPLICATION_INSIGHTS_SERVICE_NAME|Kelon|String|
-|--application-insights-max-batch-size||APPLICATION_INSIGHTS_MAX_BATCH_SIZE|8192|Number|
-|--application-insights-max-batch-interval-seconds||APPLICATION_INSIGHTS_MAX_BATCH_INTERVAL_SECONDS|2|Number|
-|--application-insights-log-levels||APPLICATION_INSIGHTS_LOG_LEVELS|fatal,panic,error,warn|Enum-List|
-|--application-insights-stats-interval-seconds||APPLICATION_INSIGHTS_STATS_INTERVAL_SECONDS|5|Number|
 
 ## datastore.yml
 
@@ -164,14 +116,6 @@ datastores:
       # Only used from SQL-Datastores
       # Sets max lifetime of each connection inside the database connection pool
       [connectionMaxLifetimeSeconds: <int>]
-
-      # Only used if ApplicationInsights is set as Telemetry-Service!
-      # Sets the name of the Dependency which is traced for this datastore
-      [telemetryName: <string>]
-
-      # Only used if ApplicationInsights is set as Telemetry-Service!
-      # Sets the type of the Dependency which is traced for this datastore
-      [telemetryType: <string>]
 
 
 # Entity-Schemas define the entities of one schema inside a datastore.

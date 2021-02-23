@@ -39,8 +39,6 @@ pages:
       - "Query-AST": "core/architecture/Query-AST.md"
     - "Integrating Kelon":
       - "Services and Kelon": "core/integration/Services-And-Kelon.md"
-      - "Kelon and Envoy": "core/integration/Kelon-Envoy.md"
-      - "Kelon and Istio": "core/integration/Kelon-Istio.md"
     - "Extending Kelon":
       - "Writing plugins": "core/extend/Write-Plugins.md"
       - "Writing call-operand-mappings": "core/extend/Write-Call-Operand-Mappings.md"
@@ -51,3 +49,4 @@ pages:
     - "Deployment": "operations/Deployment.md"
     - "Monitoring": "operations/Monitoring.md"
     - "Security": "operations/Security.md"
+    - "Testing": "operations/Testing.md"
