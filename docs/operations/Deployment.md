@@ -1,6 +1,7 @@
 # Deployment
 
-Besides using Kelon as Gateway with a proxy or as plugin in a Service-Mesh, it can also be deployed standalone and integrated in your existing services with just a few lines of extra code.
+Kelon can be easily integrated in your existing services with just a few lines of extra code by either integrating it 
+in each service or i.e. your API-Gateway.
 
 ## Local
 
