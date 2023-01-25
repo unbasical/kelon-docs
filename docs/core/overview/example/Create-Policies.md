@@ -14,6 +14,14 @@ For this example we want to create four simple policies which show all basic cap
 4. All users that are a friends of Kevin are allowed see everything
     * Endpoint: GET /api/{datastore-alias}/*
 
+## Custom built-ins
+Due to Kelon's architecture, the [print statement](https://www.openpolicyagent.org/docs/latest/policy-reference/#debugging) provided by OPA is not working. But we provide other logging functionality which smoothly integrate into Kelon's logs. These logging functions work similar to the original print statement.
+* log_info
+* log_debug
+* log_warn
+* log_error
+* log_fatal
+
 ## SQL
 
 ### policies/mysql_applications.rego
@@ -22,6 +30,19 @@ The file `policies/pg_applications.rego` has almost the same content. The only d
 
 ```rego
 package applications.mysql
+
+# First App does not need authentication
+verify = true {
+    input.path == ["api", "mysql", "apps", "1"]
+}
+
+# All other apps need an authenticated user
+verify = true {
+    some user
+
+    data.mysql.users[user].name == input.user
+    user.password = input.password
+}
 
 # Deny all by default
 allow = false
@@ -68,7 +89,15 @@ allow = true {
 
     # Query
     data.mysql.users[user].name == input.user
-    user.friend == "Kevin"
+    old_or_kevin(user.age, user.friend)
+}
+
+old_or_kevin(age, friend) {
+    age == 42
+}
+
+old_or_kevin(age, friend) {
+    friend == "Kevin"
 }
 ```
 

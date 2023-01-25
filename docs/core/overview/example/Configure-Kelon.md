@@ -83,13 +83,15 @@ There is also the possibility to add more connection options for each datastore 
 
 ## api.yml
 
-In the end all your services, which you want to secure with Kelon, receive client requests to a lot of different endpoints. To tell Kelon which policy it should use for which endpoint, you need to create the `api.yml` config. Inside this configuration you can define all your different APIs which will ultimately route a incoming request (Method, Path, Body) to a OPA-Package and Datastore.
+In the end all your services, which you want to secure with Kelon, receive client requests to a lot of different endpoints. To tell Kelon which policy it should use for which endpoint, you need to create the `api.yml` config. Inside this configuration you can define all your different APIs which will ultimately route an incoming request (Method, Path, Body) to an OPA-Package and Datastore. For each path prefix you can toggle the use of the Authentication and Authorization functions (verify/allow).
 
 ```yaml
 apis:
   # Route all requests starting with /api/mysql to MySQL
   - path-prefix: /api/mysql
     datastore: mysql
+    authentication: true
+    authorization: true
     mappings:
       - path: /apps/.*
         package: applications.mysql

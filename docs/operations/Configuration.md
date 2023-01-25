@@ -17,16 +17,35 @@ Flags:
                                Path where the config watcher should listen for changes.
   -o, --opa-conf=./opa.yml     Path to the OPA configuration yaml.
   -r, --rego-dir=REGO-DIR      Dir containing .rego files which will be loaded into OPA.
+  -c, --call-operand-dir=./call-operands  
+                               Dir containing .yaml files which contain the call operand configuration for the datastores
       --path-prefix="/v1"      Prefix which is used to proxy OPA's Data-API.
   -p, --port=8181              Port on which the proxy endpoint is served.
-      --preprocess-policies    Preprocess incoming policies for internal use-case (EXPERIMENTAL FEATURE! DO NOT USE!).
+      --ast-skip-unknown       Skip unknown parts in the AST and only log as warning.
       --log-level=INFO         Log-Level for Kelon. Must be one of [DEBUG, INFO, WARN, ERROR]
-      --access-decision-log-level=ALL
-                               Configuration for logging access decisions while Info-Log-Level for Kelon. Must be one of [ALL, ALLOW, DENY, NONE]
-      --respond-with-status-code  
-                               Communicate Decision via status code 200 (ALLOW) or 403 (DENY).
-      --telemetry-service=TELEMETRY-SERVICE  
-                               Service that is used for telemetry [Prometheus]
+      --log-format=TEXT        Log-Format for Kelon. Must be one of [TEXT, JSON]
+      --access-decision-log-level=ALL  
+                               Access decision Log-Level for Kelon. Must be one of [ALL, ALLOW, DENY, NONE]
+      --envoy-port=ENVOY-PORT  Also start Envoy GRPC-Proxy on specified port so integrate kelon with Istio.
+      --envoy-dry-run          Enable/Disable the dry run feature of the envoy-proxy.
+      --envoy-reflection       Enable/Disable the reflection feature of the envoy-proxy.
+      --metric-provider=METRIC-PROVIDER  
+                               Provider that is used for metrics [Prometheus|OTLP]
+      --trace-provider=TRACE-PROVIDER  
+                               Provider that is used for tracing [OTLP]
+      --otlp-service-name="kelon"  
+                               If traces are exported with OTLP, this specifies the service name that is propagated inside child traces
+      --otlp-metric-export-protocol=http  
+                               If metrics are exported with OTLP, select the protocol to use [http|grpc]
+      --otlp-metric-export-endpoint=OTLP-METRIC-EXPORT-ENDPOINT  
+                               If metrics are exported with OTLP, this is the endpoint they will be exported to
+      --otlp-trace-export-protocol=http  
+                               If traces are exported with OTLP, select the protocol to use [http|grpc]
+      --otlp-trace-export-endpoint=OTLP-TRACE-EXPORT-ENDPOINT  
+                               If traces are exported with OTLP, this is the endpoint they will be exported to
+      --input-body=INPUT-BODY  Input Body to use in dry run mode
+      --query-output=QUERY-OUTPUT  
+                               File to write the Query to (JSON). If not set, write to stdout using logging format
       --version                Show application version.
 
 Commands:
@@ -36,30 +55,46 @@ Commands:
   run
     Run kelon in production mode.
 
+  validate
+    Run kelon in validate mode: validate policies by printing resulting datastore queries
 ```
 
 In addition to that Kelon provides the possibility to be configured via environment variables. This may be handy if you want to run it inside a container.
 
 ### General
 
-|Flag|Short|Environment|Default|Type|
-|----|-----|-----------|-------|----|
-|--datastore-conf|-d|DATASTORE_CONF|./datastore.yml|Existing File|
-|--api-conf|-a|API_CONF|./api.yml|Existing File|
-|--config-watcher-path||CONFIG_WATCHER_PATH|./policies|Existing Dir|
-|--opa-conf|-o|OPA_CONF|./opa.yml|Existing File|
-|--rego-dir|-r|REGO_DIR|./policies|Existing Dir|
-|--path-prefix||PATH_PREFIX|/v1|String|
-|--port|-p|PORT|8181|Number|
-|--preprocess-policies||PREPROCESS_POLICIES|false|Boolean|
-|--respond-with-status-code||RESPOND_WITH_STATUS_CODE|false|Boolean|
-|--access-decision-log-level||ACCESS_DECISION_LOG_LEVEL|ALL|Enum|
+| Flag                        | Short | Environment               | Default         | Type          | Enum Values            |
+|-----------------------------|-------|---------------------------|-----------------|---------------|------------------------|
+| --datastore-conf            | -d    | DATASTORE_CONF            | ./datastore.yml | Existing File |                        |
+| --api-conf                  | -a    | API_CONF                  | ./api.yml       | Existing File |                        |
+| --config-watcher-path       |       | CONFIG_WATCHER_PATH       | ./policies      | Existing Dir  |                        |
+| --opa-conf                  | -o    | OPA_CONF                  | ./opa.yml       | Existing File |                        |
+| --rego-dir                  | -r    | REGO_DIR                  | ./policies      | Existing Dir  |                        |
+| --call-operand-dir          | -c    | CALL_OPERANDS_DIR         | ./call-operands | Existing Dir  |                        |  
+| --path-prefix               |       | PATH_PREFIX               | /v1             | String        |                        |
+| --port                      | -p    | PORT                      | 8181            | Number        |                        |
+| --ast-skip-unknown          |       | AST_SKIP_UNKNOWN          | false           | Boolean       |                        |
+| --respond-with-status-code  |       | RESPOND_WITH_STATUS_CODE  | false           | Boolean       |                        |
+| --access-decision-log-level |       | ACCESS_DECISION_LOG_LEVEL | ALL             | Enum          | all, allow, deny, none |
 
 ### Telemetry
 
-|Flag|Short|Environment|Default|Type|
-|----|-----|-----------|-------|----|
-|--telemetry-service||TELEMETRY_SERVICE||Enum|
+| Flag                          | Short | Environment                 | Default | Type   | Enum Values      |
+|-------------------------------|-------|-----------------------------|---------|--------|------------------|
+| --metric-provider             |       | METRIC_PROVIDER             |         | Enum   | prometheus, otlp |
+| --trace-provider              |       | TRACE_PROVIDER              |         | Enum   | otlp             |
+| --otlp-service-name           |       | OTLP_SERVICE_NAME           | kelon   | String |                  |
+| --otlp-metric-export-protocol |       | OTLP_METRIC_EXPORT_PROTOCOL | http    | Enum   | http, grpc       |
+| --otlp-metric-export-endpoint |       | OTLP_METRIC_EXPORT_ENDPOINT |         | String |                  |
+| --otlp-trace-export-protocol  |       | OTLP_TRACE_EXPORT_PROTOCOL  | http    | Enum   | http, grpc       |
+| --otlp-trace-export-endpoint  |       | OTLP_TRACE_EXPORT_ENDPOINT  |         | String |                  |
+
+### Validate Mode
+
+| Flag           | Short | Environment       | Default | Type   |
+|----------------|-------|-------------------|---------|--------|
+| --input-body   |       | DRY_INPUT_BODY    |         | String |
+| --query-output |       | QUERY_OUTPUT_FILE |         | String |
 
 ## datastore.yml
 
@@ -184,11 +219,11 @@ entity_schemas:
 Kelon supports different databases (PostgreSQL, MySQL and MongoDB) each of them having different connection options.
 To keep the configuration of connection options as simple as possible, Kelon just passes all key-value-pairs of each the datastore connection (despite the dedicated ones like i.e. username, host, port, etc.) directly to the used database adapter. Following table should help to lookup all available options for each supported database:
 
-|Database|Used driver|Options|
-|--------|-----------|-------|
-|PostgreSQL|github.com/lib/pq|[Go Docs, Connection String Parameters](https://godoc.org/github.com/lib/pq#hdr-Connection_String_Parameters) |
-|MySQL|github.com/go-sql-driver/mysql|[Go Docs, DSN Parameters](https://github.com/go-sql-driver/mysql#parameters)|
-|MongoDB|go.mongodb.org/mongo-driver/mongo|[Mongo-Docs, Connection options](https://docs.mongodb.com/manual/reference/connection-string/#connections-connection-options)|
+| Database   | Used driver                       | Options                                                                                                                       |
+|------------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
+| PostgreSQL | github.com/lib/pq                 | [Go Docs, Connection String Parameters](https://godoc.org/github.com/lib/pq#hdr-Connection_String_Parameters)                 |
+| MySQL      | github.com/go-sql-driver/mysql    | [Go Docs, DSN Parameters](https://github.com/go-sql-driver/mysql#parameters)                                                  |
+| MongoDB    | go.mongodb.org/mongo-driver/mongo | [Mongo-Docs, Connection options](https://docs.mongodb.com/manual/reference/connection-string/#connections-connection-options) |
 
 ### Injecting environment variables
 
@@ -234,7 +269,13 @@ apis:
     # this datastore-alias as unknown.
     # This means that the regos this collection targets can contain
     # something like 'data.<datastore-alias>.<entity>.<attribute>'
-    [datastore: <datastore-alias|string>]
+    [datastores: <datastore-aliases|strings>]
+    
+    # Toggle 'verify' evaluation for all rego-queries mapped by this API-collection
+    [authentication: <bool>]
+      
+    # Toggle 'allow' evaluation for all rego-queries mapped by this API-collection
+    [authorization: <bool>]
 
     # Path-Mappings for incoming paths
     # (the most specific mapping is picked in case of multiple mappings)

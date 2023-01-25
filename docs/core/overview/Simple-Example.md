@@ -39,7 +39,8 @@ MongoDB:
 [
   {
     id: <number>,
-    name: <string,
+    name: <string>,
+    password: <string>, 
     age: <number>,
     friend: <string>
   }
@@ -51,24 +52,25 @@ MongoDB:
 
 ### appstore.users
 
-| id | name     | age   | -friend      |
-| -- | -------- | ----- | ----------- |
-| 1  | Arnold   | 73    | John Connor |
-| 2  | Kevin    | 21    | Kevin       |
-| 3  | Anyone   | null  | Anyone      |
+| id  | name   | password  | age  | friend      |
+|-----|--------|-----------|------|-------------|
+| 1   | Arnold | pw_arnold | 73   | John Connor |
+| 2   | Kevin  | pw_kevin  | 21   | Kevin       |
+| 3   | Anyone | pw_anyone | null | Anyone      |
+| 4   | Torben | pw_torben | 42   | Daniel      | 
 
 ### appstore.apps
 
-| id | name                     | stars |
-| -- | ------------------------ | ----- |
-| 2  | First App for everyone   | 1     |
-| 2  | Arnold's App             | 2     |
-| 3  | Famous App               | 5     |
+| id  | name                   | stars |
+|-----|------------------------|-------|
+| 2   | First App for everyone | 1     |
+| 2   | Arnold's App           | 2     |
+| 3   | Famous App             | 5     |
 
 ### appstore.app_rights
 
 | app_id | user_id | right |
-| ------ | ------- | ----- |
+|--------|---------|-------|
 | 2      | 1       | OWNER |
 
 
