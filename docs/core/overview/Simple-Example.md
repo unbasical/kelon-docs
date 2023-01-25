@@ -10,7 +10,7 @@ The datamodel is fairly simple but contains everything you will need in a more a
 
 MySQL & PostgreSQL:
 
-![Datamodel](/img/how-to/Example_ER.png)
+![Datamodel](../../img/how-to/Example_ER.png)
 
 MongoDB:
 
