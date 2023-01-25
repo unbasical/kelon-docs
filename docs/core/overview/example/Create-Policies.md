@@ -15,12 +15,13 @@ For this example we want to create four simple policies which show all basic cap
     * Endpoint: GET /api/{datastore-alias}/*
 
 ## Custom built-ins
-Due to Kelon's architecture, the [print statement](https://www.openpolicyagent.org/docs/latest/policy-reference/#debugging) provided by OPA is not working. But we provide other logging functionality which smoothly integrate into Kelon's logs. These logging functions work similar to the original print statement.
-* log_info
-* log_debug
-* log_warn
-* log_error
-* log_fatal
+Due to Kelon's architecture, the [print statement](https://www.openpolicyagent.org/docs/latest/policy-reference/#debugging) provided by OPA is not working. But we provide other logging functionality which smoothly integrate into Kelon's logs. These logging functions work similar to the original print statement:
+
+- log_info
+- log_debug
+- log_warn
+- log_error
+- log_fatal
 
 ## SQL
 
