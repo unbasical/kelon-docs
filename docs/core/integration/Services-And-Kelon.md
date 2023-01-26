@@ -21,23 +21,8 @@ A possible call to Kelon for an incoming `GET /api/apps/1` might look like this:
 
 Please note that the only **required fields** inside the input object are **method** and **path**! All other fields can be added as you like and are available inside your policies by accessing them with i.e. `data.input.token`.
 
-Kelon's response to this requests can be one of following:
+Kelon's will respond with a status code (200/401/403 / Allow/Unauthenticated/Unauthorized)
 
-### Commuicate via Content
-
-Without any addidional flag Kelon sends a response with code 201 and a JSON body with following format:
-
-```json
-{
-    "Result": true/false
-}
-```
-
-In case of any malformed input or a missing mapping for the sent path, Kelon responds with a status code other than 201.
-
-### Commuicate via Status Code
-
-When you configure Kelon with the flag `--respond-with-status-code` it sends communicates the final decision via status codes (201/503 / Allow/Forbidden).
 
 ## Already existing interceptors for frameworks
 

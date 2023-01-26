@@ -51,9 +51,9 @@ to PostgreSQL
 $ curl --request POST \
   --url http://localhost:8181/v1/data \
   --header 'Content-Type: application/json' \
-  --data '{"input": {"method": "GET", "path": "/api/pg/apps/2", "user": "Arnold"}}'
+  --data '{"input": {"method": "GET", "path": "/api/pg/apps/2", "user": "Arnold", "password": "pw_arnold"}}'
 
-> {"result":true}
+> 200
 ```
 
 to MySQL
@@ -61,9 +61,9 @@ to MySQL
 $ curl --request POST \
   --url http://localhost:8181/v1/data \
   --header 'Content-Type: application/json' \
-  --data '{"input": {"method": "GET", "path": "/api/mysql/apps/2", "user": "Arnold"}}'
+  --data '{"input": {"method": "GET", "path": "/api/mysql/apps/2", "user": "Arnold", "password": "pw_arnold"}}'
 
-> {"result":true}
+> 200
 ```
 
 to MongoDB
@@ -71,9 +71,9 @@ to MongoDB
 $ curl --request POST \
   --url http://localhost:8181/v1/data \
   --header 'Content-Type: application/json' \
-  --data '{"input": {"method": "GET", "path": "/api/mongo/apps/2", "user": "Arnold"}}'
+  --data '{"input": {"method": "GET", "path": "/api/mongo/apps/2", "user": "Arnold", "password": "pw_arnold"}}'
 
-> {"result":true}
+> 200
 ```
 
 ## Play around
@@ -85,9 +85,9 @@ You can i.e. try to access an app you shouldn't be allowed to:
 $ curl --request POST \
   --url http://localhost:8181/v1/data \
   --header 'Content-Type: application/json' \
-  --data '{"input": {"method": "GET", "path": "/api/pg/apps/2", "user": "Anyone"}}'
+  --data '{"input": {"method": "GET", "path": "/api/pg/apps/2", "user": "Anyone", "password": "pw_anyone"}}'
 
-> {"result":false}
+> 403
 ```
 
 Or access an app with 5 stars (which the user 'Anyone' is allowed to):
@@ -95,9 +95,9 @@ Or access an app with 5 stars (which the user 'Anyone' is allowed to):
 $ curl --request POST \
   --url http://localhost:8181/v1/data \
   --header 'Content-Type: application/json' \
-  --data '{"input": {"method": "GET", "path": "/api/pg/apps/3", "user": "Anyone"}}'
+  --data '{"input": {"method": "GET", "path": "/api/pg/apps/3", "user": "Anyone", "password": "pw_anyone"}}'
 
-> {"result":true}
+> 200
 ```
 
 There is also a POSTMAN-COLLECTION in the example directory which contains a bunch of queries agains all three datasources (PostgreSQL, MySQL, MongoDB).
