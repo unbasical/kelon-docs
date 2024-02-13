@@ -8,7 +8,7 @@
 
 ```bash
 # Clone the repository
-$ git clone git@github.com:Foundato/kelon.git
+$ git clone git@github.com:unbasical/kelon.git
 
 # Build the container
 $ docker build . -t kelon:latest

@@ -32,4 +32,4 @@ you copy an abstraction of your entire database into OPA which is not only redun
 Getting started with Kelon is as easy as following one of the How-To guides.
 
 * [Example Setup](core/overview/Simple-Example.md)
-* [Appstore example (Spring-Boot & Vue.js)](https://github.com/Foundato/spring-vue-appstore)
+* [Appstore example (Spring-Boot & Vue.js)](https://github.com/unbasical/spring-vue-appstore)

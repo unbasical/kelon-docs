@@ -1,8 +1,8 @@
 site_name: Kelon Docs
 theme: material
 
-repo_name: foundato/kelon
-repo_url: https://github.com/foundato/kelon
+repo_name: unbasical/kelon
+repo_url: https://github.com/unbasical/kelon
 
 markdown_extensions:
   - pymdownx.arithmatex
@@ -22,7 +22,7 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
 
-pages:
+nav:
   - "Core Docs":
     - "Introduction": "index.md"
     - "Overview":

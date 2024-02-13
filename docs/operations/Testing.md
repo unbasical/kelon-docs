@@ -17,7 +17,7 @@ Starting test suite:
 make integration-test
 ```
 
-Example: [integration tests](https://github.com/Foundato/kelon/tree/develop/test/integration)
+Example: [integration tests](https://github.com/unbasical/kelon/tree/develop/test/integration)
 
 ## E2E testing
 The E2E-Testing starts a local docker-compose environment and runs a Postman collection against Kelon.
@@ -28,7 +28,7 @@ Starting E2E-Test
 make e2e-test
 ```
 
-Example: [e2e tests](https://github.com/Foundato/kelon/tree/develop/test/e2e)
+Example: [e2e tests](https://github.com/unbasical/kelon/tree/develop/test/e2e)
 
 
 ## Load testing
@@ -46,4 +46,4 @@ Translate/update postman collections to k6 collections:
 make load-test-update-postman
 ```
 
-Example: [load tests](https://github.com/Foundato/kelon/tree/develop/test/load)
+Example: [load tests](https://github.com/unbasical/kelon/tree/develop/test/load)

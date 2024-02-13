@@ -9,4 +9,4 @@ You can find more information on how to run Kelon as a standalone process [here]
 
 ## Kubernetes
 
-Kelon can also be deployed into Kubernetes with only a few configurations which is also available [here](https://github.com/Foundato/kelon-examples/tree/master/kube-mgmt-kelon-example) in our Kelon-Examples repository.
+Kelon can also be deployed into Kubernetes with only a few configurations which is also available [here](https://github.com/unbasical/kelon-examples/tree/master/kube-mgmt-kelon-example) in our Kelon-Examples repository.

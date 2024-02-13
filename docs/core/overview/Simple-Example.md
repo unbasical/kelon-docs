@@ -1,6 +1,6 @@
 # Example
 
-To get a first notion of what kelon does, we provide several [example setups](https://github.com/Foundato/kelon-examples) which all show a configuration of Kelon with three separate datastores (PostgreSQL, MySQL & MongoDB) in different environments. To demonstrate the ease of switching between datastores with kelon, all three datastores have the same data set.
+To get a first notion of what kelon does, we provide several [example setups](https://github.com/unbasical/kelon-examples) which all show a configuration of Kelon with three separate datastores (PostgreSQL, MySQL & MongoDB) in different environments. To demonstrate the ease of switching between datastores with kelon, all three datastores have the same data set.
 
 In the following tutorial, we will walk through all steps needed to get a project together with kelon up and running.
 
@@ -74,4 +74,4 @@ MongoDB:
 
 ## Appstore example (Spring-Boot & Vue.js)
 
-Bored of this "playground" example? Then go ahead and checkout our [Kelon-enabled fork](https://github.com/Foundato/spring-vue-appstore) of Daniel-Seifert's [spring-vue-appstore](https://github.com/Daniel-Seifert/spring-vue-appstore) which shows how to integrate kelon in a real-world szenario.
+Bored of this "playground" example? Then go ahead and checkout our [Kelon-enabled fork](https://github.com/unbasical/spring-vue-appstore) of Daniel-Seifert's [spring-vue-appstore](https://github.com/Daniel-Seifert/spring-vue-appstore) which shows how to integrate kelon in a real-world szenario.
