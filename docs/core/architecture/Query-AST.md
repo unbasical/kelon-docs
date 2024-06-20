@@ -5,4 +5,4 @@ This means, that you have to Walk the entire Query-AST and translate it if you w
 
 ![Query AST](../../img/kelon/architecture/Query_AST.png)
 
-It is worth mentioning that the method 'Walk' of every Node of the Query-AST walks the entire node's subtree (Visitor Pattern) buttom-up & left-right including the calling node as last visit.
+It is worth mentioning that the method 'Walk' of every Node of the Query-AST walks the entire node's subtree (Visitor Pattern) bottom-up & left-right including the calling node as last visit.
